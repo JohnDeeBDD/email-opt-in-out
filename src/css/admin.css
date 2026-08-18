@@ -1,0 +1,56 @@
+/* The campaign management screen under Tools. */
+
+.aiplugin5055-admin .aiplugin5055-create {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 1.5rem;
+}
+
+.aiplugin5055-admin .aiplugin5055-code {
+	font-weight: 600;
+	letter-spacing: 0.08em;
+}
+
+.aiplugin5055-admin .aiplugin5055-status {
+	display: inline-block;
+	padding: 0.1rem 0.5rem;
+	border-radius: 10px;
+	font-size: 0.8125rem;
+}
+
+.aiplugin5055-admin .aiplugin5055-status--active {
+	background: #edfaef;
+	color: #00450c;
+}
+
+.aiplugin5055-admin .aiplugin5055-status--disabled {
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.aiplugin5055-admin .aiplugin5055-row-actions {
+	display: flex;
+	gap: 0.75rem;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.aiplugin5055-admin .aiplugin5055-inline-form {
+	display: inline;
+}
+
+.aiplugin5055-admin .aiplugin5055-delete-link {
+	color: #b32d2e;
+}
+
+.aiplugin5055-admin .aiplugin5055-generator {
+	max-width: 48rem;
+	margin-bottom: 2rem;
+}
+
+.aiplugin5055-admin .aiplugin5055-generator-status {
+	margin-left: 0.75rem;
+	color: #50575e;
+}
