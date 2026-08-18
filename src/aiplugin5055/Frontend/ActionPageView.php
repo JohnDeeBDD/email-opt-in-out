@@ -29,7 +29,7 @@ class ActionPageView {
 	public static function render_confirm( $action, array $campaign, $email, $action_code ) {
 		$title = \__( 'Unsubscribe', 'aiplugin5055' );
 
-		$intro = \__( 'You are about to unsubscribe from this campaign. No account, password or explanation is required.', 'aiplugin5055' );
+		$intro = \__( 'You are about to unsubscribe from this site.', 'aiplugin5055' );
 
 		$button = \__( 'Unsubscribe', 'aiplugin5055' );
 
@@ -48,7 +48,6 @@ class ActionPageView {
 				</dl>
 
 				<p class="aiplugin5055-scope">
-					<?php \esc_html_e( 'This applies only to the campaign named above. Any other campaign you have acted on is unaffected.', 'aiplugin5055' ); ?>
 				</p>
 
 				<form method="post" action="<?php echo \esc_url( Urls::action_url( $action, $action_code ) ); ?>" class="aiplugin5055-form" data-aiplugin5055-action-form>
@@ -75,7 +74,7 @@ class ActionPageView {
 	public static function render_result( $action, array $campaign, $email ) {
 		$title = \__( 'You have been unsubscribed', 'aiplugin5055' );
 
-		$message = \__( 'We have recorded your request. You will not receive further email from this campaign at this address.', 'aiplugin5055' );
+		$message = \__( 'We have recorded your request.', 'aiplugin5055' );
 
 		self::layout(
 			$title,
@@ -92,7 +91,6 @@ class ActionPageView {
 				</dl>
 
 				<p class="aiplugin5055-scope">
-					<?php \esc_html_e( 'Following this link again is safe and will not change anything further.', 'aiplugin5055' ); ?>
 				</p>
 				<?php
 			}
@@ -171,7 +169,7 @@ class ActionPageView {
 	public static function render_confirm_content( $action, array $campaign, $email, $action_code ) {
 		$title = \__( 'Unsubscribe', 'aiplugin5055' );
 
-		$intro = \__( 'You are about to unsubscribe from this campaign. No account, password or explanation is required.', 'aiplugin5055' );
+		$intro = \__( 'You are about to unsubscribe from this site.', 'aiplugin5055' );
 
 		$button = \__( 'Unsubscribe', 'aiplugin5055' );
 
@@ -188,7 +186,6 @@ class ActionPageView {
 			</dl>
 
 			<p class="aiplugin5055-scope">
-				<?php \esc_html_e( 'This applies only to the campaign named above. Any other campaign you have acted on is unaffected.', 'aiplugin5055' ); ?>
 			</p>
 
 			<form method="post" action="<?php echo \esc_url( Urls::action_url( $action, $action_code ) ); ?>" class="aiplugin5055-form" data-aiplugin5055-action-form>
@@ -214,7 +211,7 @@ class ActionPageView {
 	public static function render_result_content( $action, array $campaign, $email ) {
 		$title = \__( 'You have been unsubscribed', 'aiplugin5055' );
 
-		$message = \__( 'We have recorded your request. You will not receive further email from this campaign at this address.', 'aiplugin5055' );
+		$message = \__( 'We have recorded your request.', 'aiplugin5055' );
 
 		?>
 		<div class="aiplugin5055-content">
@@ -229,7 +226,6 @@ class ActionPageView {
 			</dl>
 
 			<p class="aiplugin5055-scope">
-				<?php \esc_html_e( 'Following this link again is safe and will not change anything further.', 'aiplugin5055' ); ?>
 			</p>
 		</div>
 		<?php
