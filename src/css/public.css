@@ -1,0 +1,129 @@
+/*
+ * The public opt-in / opt-out pages.
+ *
+ * Recipients arrive from an email with no session and no expectation of the
+ * site's design, so the page is deliberately plain, self-contained and legible
+ * in either colour scheme.
+ */
+
+.aiplugin5055-body {
+	margin: 0;
+	padding: 2rem 1rem;
+	background: #f6f7f7;
+	color: #1e1e1e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	line-height: 1.6;
+}
+
+.aiplugin5055-card {
+	max-width: 34rem;
+	margin: 0 auto;
+	padding: 2rem;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+}
+
+.aiplugin5055-title {
+	margin: 0 0 0.75rem;
+	font-size: 1.5rem;
+	line-height: 1.3;
+}
+
+.aiplugin5055-intro {
+	margin: 0 0 1.5rem;
+}
+
+.aiplugin5055-summary {
+	margin: 0 0 1.5rem;
+	padding: 1rem;
+	background: #f6f7f7;
+	border-radius: 6px;
+}
+
+.aiplugin5055-summary dt {
+	font-size: 0.8125rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #50575e;
+}
+
+.aiplugin5055-summary dd {
+	margin: 0 0 0.75rem;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.aiplugin5055-summary dd:last-child {
+	margin-bottom: 0;
+}
+
+.aiplugin5055-scope {
+	margin: 0 0 1.5rem;
+	font-size: 0.9375rem;
+	color: #50575e;
+}
+
+.aiplugin5055-button {
+	display: inline-block;
+	padding: 0.7rem 1.5rem;
+	background: #2271b1;
+	color: #fff;
+	border: 0;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.aiplugin5055-button:hover,
+.aiplugin5055-button:focus {
+	background: #135e96;
+}
+
+.aiplugin5055-button--danger {
+	background: #b32d2e;
+}
+
+.aiplugin5055-button--danger:hover,
+.aiplugin5055-button--danger:focus {
+	background: #8a2424;
+}
+
+.aiplugin5055-button[aria-busy="true"] {
+	opacity: 0.6;
+	cursor: progress;
+}
+
+.aiplugin5055-site {
+	margin: 2rem 0 0;
+	padding-top: 1rem;
+	border-top: 1px solid #dcdcde;
+	font-size: 0.875rem;
+	color: #50575e;
+}
+
+@media (prefers-color-scheme: dark) {
+	.aiplugin5055-body {
+		background: #1d2327;
+		color: #f0f0f1;
+	}
+
+	.aiplugin5055-card {
+		background: #2c3338;
+		border-color: #3c434a;
+	}
+
+	.aiplugin5055-summary {
+		background: #1d2327;
+	}
+
+	.aiplugin5055-summary dt,
+	.aiplugin5055-scope,
+	.aiplugin5055-site {
+		color: #c3c4c7;
+	}
+
+	.aiplugin5055-site {
+		border-top-color: #3c434a;
+	}
+}
