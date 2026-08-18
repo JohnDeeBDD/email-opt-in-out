@@ -35,8 +35,10 @@ src/
 │   │   ├── ActionCode.php       campaign code + encoded email + check value
 │   │   └── EmailCodec.php       Reversible Base32-style email encoding
 │   ├── Frontend/
-│   │   ├── ActionEndpoint.php   Public opt-in / opt-out request handling
-│   │   └── ActionPageView.php   Public page markup
+│   │   ├── ActionEndpoint.php   Public unsubscribe request handling
+│   │   ├── ActionPageView.php   Unsubscribe page markup
+│   │   ├── PageContentFilter.php  Unsubscribe UI on a configured WP page
+│   │   └── SilentOptIn.php      Records opt-in on any URL carrying a code
 │   ├── Meta/
 │   │   └── MetaKeys.php         email_campaign_{CODE} keys and protection
 │   ├── Rest/
@@ -106,9 +108,19 @@ Generating a code creates no user and stores no address.
 **3. Mail merge** — each row carries `opt_in_url` and `opt_out_url`. These URLs are
 personal data by construction: keep them out of analytics and shared logs.
 
-**4. Recipients click.** They land on a public page that states what will happen and
-does nothing until they submit the form. On submission the plugin finds or creates the
-user and writes `email_campaign_{CODE}`. Nobody is ever logged in.
+**4a. Recipients click the CTA.** The code may ride on *any* URL of the site — a
+landing page, a post, the front page — as `?c=CODE`. The visit itself is the opt-in:
+the plugin finds or creates the user, writes `email_campaign_{CODE}`, and serves the
+page the visitor asked for, unchanged. There is no form, no confirmation, no notice,
+and no login — the site says nothing about it. Re-visiting is a no-op while the
+address already stands at `OPTED_IN`; an address that has since unsubscribed opts in
+again. Opt-in has no page setting: `opt_in_url` defaults to the front page, and the
+`aiplugin5055_opt_in_destination` filter (or hand-building the URL) sends recipients
+anywhere else.
+
+**4b. Recipients click unsubscribe.** That link still goes to a public page that
+states what will happen and does nothing until they submit the form. On submission the
+plugin writes the opt-out. Nobody is ever logged in.
 
 ---
 
@@ -172,9 +184,9 @@ reissued.
 | `aiplugin5055_new_user_role` | site default role | Role for created users (privileged roles are refused) |
 | `aiplugin5055_send_new_user_notification` | `false` | Send WordPress's new-user email |
 | `aiplugin5055_check_value_length` | `3` | Check-value characters; `0` disables |
-| `aiplugin5055_opt_in_slug` | `email-action` | CTA path segment |
+| `aiplugin5055_opt_in_destination` | `home_url( '/' )` | Where CTA links land; the code is appended to it |
 | `aiplugin5055_opt_out_slug` | `email-unsubscribe` | Unsubscribe path segment |
-| `aiplugin5055_rate_limit` | 60 view / 15 submit | Requests per window per IP |
+| `aiplugin5055_rate_limit` | 60 view / 15 submit / 20 opt_in_probe | Requests per window per IP (the `opt_in_probe` bucket counts only rejected codes) |
 | `aiplugin5055_rate_limit_window` | `600` | Window, seconds |
 | `aiplugin5055_client_ip` | `REMOTE_ADDR` | Client IP behind a proxy |
 
@@ -189,6 +201,12 @@ Its entire authority is to set opt-in or opt-out metadata for **one campaign** o
 address**, creating that user if needed. It cannot log anyone in, issue a password or
 reset link, change a role, email address or any profile field, touch another campaign's
 metadata, reach another user's data, or accept an address supplied in the request in
-place of the encoded one. Loading the URL changes nothing at all.
+place of the encoded one.
+
+Loading a URL that carries a code *does* record the opt-in — that is the point of the
+CTA link — so a mail scanner that follows one opts that recipient in. Opt-in is the
+reversible direction and the recipient's own unsubscribe always overrides it. Opt-out
+is not exposed that way: it still requires the confirming submission on the unsubscribe
+page, and the unsubscribe page never records an opt-in.
 
 Changing rewrite slugs requires re-saving *Settings → Permalinks*.

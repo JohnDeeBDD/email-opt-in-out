@@ -29,7 +29,7 @@ class ActionRecorder {
 	 * @param string $email    Canonical address decoded from the action code.
 	 * @param array  $campaign Campaign record the code authorized.
 	 * @param string $action   self::ACTION_OPT_IN or self::ACTION_OPT_OUT.
-	 * @param array  $context  Provenance details (mechanism, endpoint, ip_hash...).
+	 * @param array  $context  Provenance details (mechanism, reason, endpoint, ip_hash...).
 	 * @return array|\WP_Error {
 	 *     @type int    $user_id User the action was recorded against.
 	 *     @type bool   $created Whether the action created the account.
@@ -124,9 +124,11 @@ class ActionRecorder {
 
 		$entry['timestamp'] = $now;
 		$entry['count']     = ( isset( $entry['count'] ) ? (int) $entry['count'] : 0 ) + 1;
-		$entry['reason']    = self::ACTION_OPT_IN === $action
-			? \__( 'Recipient explicitly opted in', 'aiplugin5055' )
-			: \__( 'Recipient explicitly unsubscribed', 'aiplugin5055' );
+		$entry['reason']    = isset( $context['reason'] ) && '' !== $context['reason']
+			? (string) $context['reason']
+			: ( self::ACTION_OPT_IN === $action
+				? \__( 'Recipient explicitly opted in', 'aiplugin5055' )
+				: \__( 'Recipient explicitly unsubscribed', 'aiplugin5055' ) );
 		$entry['source']    = isset( $context['source'] ) ? (string) $context['source'] : 'email_campaign';
 		$entry['details']   = self::details( $campaign, $context );
 

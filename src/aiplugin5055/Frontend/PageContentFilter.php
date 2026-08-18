@@ -1,9 +1,9 @@
 <?php
 /**
- * Content filter for rendering action UI on WordPress pages.
+ * Content filter for rendering the unsubscribe UI on a WordPress page.
  *
- * When WordPress pages are configured for opt-in/opt-out, this filter
- * replaces the page content with the appropriate action UI.
+ * When a WordPress page is configured for opt-out, this filter replaces the
+ * page content with the unsubscribe UI. Opt-in has no page and no UI.
  *
  * @package aiplugin5055
  */
@@ -12,12 +12,11 @@ namespace aiplugin5055\Frontend;
 
 use aiplugin5055\Support\RateLimiter;
 use aiplugin5055\Support\Settings;
-use aiplugin5055\Support\Urls;
 
 class PageContentFilter {
 
 	/**
-	 * Filter the content of configured action pages.
+	 * Filter the content of the configured unsubscribe page.
 	 *
 	 * @param string $content The page content.
 	 * @return string
@@ -28,11 +27,10 @@ class PageContentFilter {
 			return $content;
 		}
 
-		$pages = Settings::get_pages();
-		$page_id = \get_the_ID();
+		$opt_out_page = Settings::opt_out_page();
 
-		// Check if this is one of our configured pages.
-		if ( $page_id !== $pages['opt_in_page'] && $page_id !== $pages['opt_out_page'] ) {
+		// Check if this is our configured page.
+		if ( ! $opt_out_page || \get_the_ID() !== $opt_out_page ) {
 			return $content;
 		}
 
@@ -41,7 +39,7 @@ class PageContentFilter {
 		
 		if ( '' === $action ) {
 			// No action parameter, show instructions.
-			return self::render_instructions( $page_id, $pages );
+			return self::render_instructions();
 		}
 
 		// Retrieve the action data stored by ActionEndpoint.
@@ -118,24 +116,14 @@ class PageContentFilter {
 	/**
 	 * Render instructions when no action is present.
 	 *
-	 * @param int   $page_id Current page ID.
-	 * @param array $pages   Configured page IDs.
 	 * @return string
 	 */
-	private static function render_instructions( $page_id, array $pages ) {
-		$is_opt_in = ( $page_id === $pages['opt_in_page'] );
-
+	private static function render_instructions() {
 		\ob_start();
 		?>
 		<div class="aiplugin5055-instructions">
 			<p>
-				<?php
-				if ( $is_opt_in ) {
-					\esc_html_e( 'This page is configured to handle email subscription confirmations. Users will be directed here when they click opt-in links in campaign emails.', 'aiplugin5055' );
-				} else {
-					\esc_html_e( 'This page is configured to handle email unsubscribe requests. Users will be directed here when they click unsubscribe links in campaign emails.', 'aiplugin5055' );
-				}
-				?>
+				<?php \esc_html_e( 'This page is configured to handle email unsubscribe requests. Users will be directed here when they click unsubscribe links in campaign emails.', 'aiplugin5055' ); ?>
 			</p>
 		</div>
 		<?php

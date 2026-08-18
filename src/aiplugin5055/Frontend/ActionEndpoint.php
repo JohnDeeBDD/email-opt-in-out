@@ -1,11 +1,14 @@
 <?php
 /**
- * The public opt-in and opt-out endpoints (PRD Sections 20, 22, 24, 25, 36).
+ * The public opt-out (unsubscribe) endpoint (PRD Sections 20, 22, 24, 25, 36).
  *
- * These pages run under an unauthenticated action code, not a WordPress
- * session. Their entire capability is: for the single address encoded in the
- * code, find or create the user and set the opt-in/opt-out metadata of the
- * single campaign named in the code. Merely loading the URL does nothing.
+ * This page runs under an unauthenticated action code, not a WordPress
+ * session. Its entire capability is: for the single address encoded in the
+ * code, find or create the user and set the opt-out metadata of the single
+ * campaign named in the code. Merely loading the URL does nothing; the
+ * recipient has to confirm.
+ *
+ * Opt-in has no endpoint of its own — see Frontend\SilentOptIn.
  *
  * @package aiplugin5055
  */
@@ -32,7 +35,7 @@ class ActionEndpoint {
 	const WINDOW = 600;
 
 	/**
-	 * Rewrite rules for the two public endpoints.
+	 * Rewrite rule for the public endpoint.
 	 *
 	 * Registered on init and again from the activation hook, so that the flush
 	 * performed on activation has something to flush.
@@ -40,12 +43,6 @@ class ActionEndpoint {
 	 * @return void
 	 */
 	public static function register_rewrite_rules() {
-		\add_rewrite_rule(
-			'^' . Urls::opt_in_slug() . '/?$',
-			'index.php?' . Urls::ACTION_VAR . '=' . Urls::ACTION_OPT_IN,
-			'top'
-		);
-
 		\add_rewrite_rule(
 			'^' . Urls::opt_out_slug() . '/?$',
 			'index.php?' . Urls::ACTION_VAR . '=' . Urls::ACTION_OPT_OUT,
@@ -80,7 +77,7 @@ class ActionEndpoint {
 
 		$action = \sanitize_key( (string) $action );
 
-		return in_array( $action, array( Urls::ACTION_OPT_IN, Urls::ACTION_OPT_OUT ), true ) ? $action : '';
+		return Urls::ACTION_OPT_OUT === $action ? $action : '';
 	}
 
 	/**
@@ -167,7 +164,7 @@ class ActionEndpoint {
 		$result = ActionRecorder::record(
 			$parsed['email'],
 			$campaign,
-			Urls::ACTION_OPT_OUT === $action ? ActionRecorder::ACTION_OPT_OUT : ActionRecorder::ACTION_OPT_IN,
+			ActionRecorder::ACTION_OPT_OUT,
 			array(
 				'source'    => 'email_campaign',
 				'mechanism' => 'public_action_page',
@@ -274,13 +271,13 @@ class ActionEndpoint {
 	 * @return bool
 	 */
 	private function is_on_wordpress_page() {
-		$pages = Settings::get_pages();
-		
-		if ( empty( $pages['opt_in_page'] ) && empty( $pages['opt_out_page'] ) ) {
+		$page_id = Settings::opt_out_page();
+
+		if ( ! $page_id ) {
 			return false;
 		}
 
-		return \is_page( array( $pages['opt_in_page'], $pages['opt_out_page'] ) );
+		return \is_page( $page_id );
 	}
 
 	/**

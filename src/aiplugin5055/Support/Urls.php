@@ -21,15 +21,6 @@ class Urls {
 	const ACTION_OPT_OUT = 'opt_out';
 
 	/**
-	 * Path segment for the call-to-action (opt-in) link.
-	 *
-	 * @return string
-	 */
-	public static function opt_in_slug() {
-		return \sanitize_title( \apply_filters( 'aiplugin5055_opt_in_slug', 'email-action' ) );
-	}
-
-	/**
 	 * Path segment for the unsubscribe link.
 	 *
 	 * @return string
@@ -39,44 +30,59 @@ class Urls {
 	}
 
 	/**
+	 * Where a call-to-action link should land.
+	 *
+	 * Opt-in has no page of its own: the code may ride on any URL of the site,
+	 * and the visit records the opt-in silently. The site's front page is only
+	 * the default destination — filter it to send a campaign's recipients to a
+	 * landing page, or simply append the code parameter to any URL by hand.
+	 *
+	 * @return string
+	 */
+	public static function opt_in_destination() {
+		$destination = \apply_filters( 'aiplugin5055_opt_in_destination', \home_url( '/' ) );
+
+		return \is_string( $destination ) && '' !== $destination ? $destination : \home_url( '/' );
+	}
+
+	/**
 	 * Build the public URL for an action code.
 	 *
-	 * If WordPress pages are configured for opt-in/opt-out, uses those pages.
-	 * Otherwise, falls back to custom rewrite rules or plain query strings.
+	 * The opt-in URL is the campaign's destination with the code appended; the
+	 * opt-out URL is the unsubscribe page if one is configured, and the custom
+	 * endpoint otherwise.
 	 *
 	 * @param string $action       ACTION_OPT_IN or ACTION_OPT_OUT.
 	 * @param string $action_code  The tracking code.
 	 * @return string
 	 */
 	public static function action_url( $action, $action_code ) {
-		$action = self::ACTION_OPT_OUT === $action ? self::ACTION_OPT_OUT : self::ACTION_OPT_IN;
+		if ( self::ACTION_OPT_OUT !== $action ) {
+			return \add_query_arg( self::CODE_VAR, $action_code, self::opt_in_destination() );
+		}
 
-		// Check if WordPress pages are configured.
-		$pages   = Settings::get_pages();
-		$page_id = self::ACTION_OPT_OUT === $action ? $pages['opt_out_page'] : $pages['opt_in_page'];
+		$page_id = Settings::opt_out_page();
 
 		if ( $page_id > 0 && \get_post_status( $page_id ) === 'publish' ) {
 			// Use the configured WordPress page.
 			return \add_query_arg(
 				array(
-					self::ACTION_VAR => $action,
+					self::ACTION_VAR => self::ACTION_OPT_OUT,
 					self::CODE_VAR   => $action_code,
 				),
 				\get_permalink( $page_id )
 			);
 		}
 
-		// Fall back to custom rewrite rules.
+		// Fall back to the custom rewrite rule.
 		if ( \get_option( 'permalink_structure' ) ) {
-			$slug = self::ACTION_OPT_OUT === $action ? self::opt_out_slug() : self::opt_in_slug();
-
-			return \add_query_arg( self::CODE_VAR, $action_code, \home_url( '/' . $slug . '/' ) );
+			return \add_query_arg( self::CODE_VAR, $action_code, \home_url( '/' . self::opt_out_slug() . '/' ) );
 		}
 
-		// Fall back to plain query strings.
+		// Fall back to a plain query string.
 		return \add_query_arg(
 			array(
-				self::ACTION_VAR => $action,
+				self::ACTION_VAR => self::ACTION_OPT_OUT,
 				self::CODE_VAR   => $action_code,
 			),
 			\home_url( '/' )

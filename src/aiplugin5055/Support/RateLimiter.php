@@ -47,6 +47,28 @@ class RateLimiter {
 	}
 
 	/**
+	 * Whether a bucket is already spent, without consuming from it.
+	 *
+	 * Lets a caller charge only the requests it wants to limit (a run of bad
+	 * codes, say) while still refusing everything once the bucket is empty.
+	 *
+	 * @param string $bucket Bucket name.
+	 * @param int    $limit  Requests allowed per window.
+	 * @return bool True when the client is over the limit.
+	 */
+	public static function exceeded( $bucket, $limit ) {
+		$limit = (int) \apply_filters( 'aiplugin5055_rate_limit', $limit, $bucket );
+
+		if ( $limit <= 0 ) {
+			return false;
+		}
+
+		$count = \get_transient( self::PREFIX . md5( $bucket . '|' . self::client_ip() ) );
+
+		return false !== $count && (int) $count >= $limit;
+	}
+
+	/**
 	 * A stable, non-reversible identifier for the requesting client.
 	 *
 	 * Used as provenance on recorded actions; the raw address is never stored.

@@ -550,10 +550,11 @@ Requirements:
 * A separator character between the two parts is OPTIONAL; the fixed five-character prefix length makes one unnecessary.
 * The campaign code recovered from the first five characters SHALL determine both the campaign authorization check and the `email_campaign_{CAMPAIGN_CODE}` metadata key written by the action (Section 8).
 
-The action code appears in the email URL as a single query parameter or path segment. For example:
+The action code appears in the email URL as a single query parameter or path segment. The CTA link may carry it on any URL of the site; the unsubscribe link carries it on the unsubscribe endpoint. For example:
 
 ```text
-https://example.com/email-action/?c=A7K2QNBSWY3DPEBLW64TMMQ
+https://example.com/summer-launch/?c=A7K2QNBSWY3DPEBLW64TMMQ      ← CTA, opts in silently
+https://example.com/email-unsubscribe/?c=A7K2QNBSWY3DPEBLW64TMMQ  ← unsubscribe, asks first
 ```
 
 The recipient's plaintext email address MUST NOT appear directly in the URL:
@@ -679,7 +680,7 @@ The following limitations are **known and accepted**:
 
 1. **The email encoding is obscurity, not encryption.** Anyone who obtains a code and determines the substitution scheme can recover the recipient's email address. Action-code URLs are therefore to be treated as containing personal data and MUST NOT be published, logged to third parties, or exposed in analytics.
 2. **Without the optional check value of Section 16, a leaked code compromises its whole campaign.** A recipient who has one valid code holds a valid campaign code and, once the substitution is understood, can construct codes for arbitrary addresses within that campaign. The maximum consequence is the creation of a subscriber-level WordPress user carrying opt-in or opt-out metadata for an address the attacker chose. Implementing the keyed check value removes this exposure and is RECOMMENDED.
-3. **Referrer and link-scanner leakage.** Corporate mail scanners and link previewers may fetch action URLs. Because a mere page view performs no action (Section 25), such fetches MUST NOT change any state.
+3. **Referrer and link-scanner leakage.** Corporate mail scanners and link previewers may fetch action URLs. For unsubscribe links this changes nothing, because the unsubscribe requires a confirming submission (Section 25). For CTA links it does: opt-in is recorded by the visit itself (Section 24), so a scanner that follows a CTA link records that recipient's opt-in. This is accepted deliberately, in exchange for a CTA link that costs the recipient no extra click. Opt-in is the reversible direction — the recipient's own unsubscribe overrides it at any time — and the effect is bounded to a subscriber-level account carrying opt-in metadata for one campaign.
 
 Given these limits, the blast radius of the public endpoint is intentionally bounded to a single capability: setting opt-in or opt-out metadata on the user identified by the code, creating that user if necessary. Nothing else is reachable.
 
@@ -689,17 +690,16 @@ The plugin SHOULD rate-limit the public endpoints by IP address and SHOULD log r
 
 # 20. Action Scope
 
-Possession of an action code authorizes only the email-related action performed on the public landing page for the address encoded in that code.
+Possession of an action code authorizes only the email-related action taken for the address encoded in that code.
 
 The action taken — opt-in or opt-out — is determined by:
 
 ```text
-the endpoint the recipient reached (CTA link vs. unsubscribe link)
-                    +
-the explicit action the recipient confirms on that page
+opt-in   the recipient reached any URL of the site carrying the code
+opt-out  the recipient reached the unsubscribe endpoint AND confirmed there
 ```
 
-The same action code MAY therefore appear in both the CTA link and the unsubscribe link of a single email; the two links differ by endpoint, not by code.
+The same action code MAY therefore appear in both the CTA link and the unsubscribe link of a single email; the two links differ by destination, not by code. The unsubscribe endpoint and the page hosting it SHALL never record an opt-in, so a mangled unsubscribe link cannot invert the recipient's intent.
 
 An action code MUST NOT authorize:
 
@@ -796,20 +796,18 @@ Once the recipient explicitly performs the action, the opt-out SHALL be recorded
 
 # 24. Opt-In Workflow
 
-The plugin SHALL support the corresponding explicit opt-in operation, reached through the CTA link in the campaign email.
+The plugin SHALL record an explicit opt-in for any front-end request that carries a valid action code, whatever URL that request was for. Opt-in has no page, no form, no confirmation step and no visible response.
 
 Conceptually:
 
 ```text
 External email address
         ↓
-Recipient clicks CTA link
+Recipient follows the CTA link — any URL of the site, carrying the code
         ↓
 Validate campaign code portion
         ↓
 Decode email address portion
-        ↓
-Recipient explicitly opts in
         ↓
 Find existing WordPress user
         ↓
@@ -817,20 +815,26 @@ If none exists, CREATE USER
         ↓
 Record opt-in metadata under email_campaign_{CAMPAIGN_CODE}
         ↓
-Display confirmation
+Serve the requested page, unchanged and unannotated
 ```
 
-The exact opt-in UI MAY differ from the unsubscribe UI.
+Requirements:
 
-The essential requirement is that **the WordPress user is not created until the explicit opt-in occurs.**
+* The opt-in SHALL be recorded silently: the response body, status and template SHALL be exactly what the request would have produced without the code.
+* The plugin SHALL NOT require the recipient to be logged in, to confirm, or to interact with the page in any way.
+* The action code MAY be appended to any URL of the site. No page setting exists for opt-in, and none is required.
+* A code already holding `OPTED_IN` for its campaign SHALL be a no-op, so reloads and repeat clicks do not inflate the recorded counts. A code whose recipient has since opted out SHALL record a fresh opt-in.
+* An invalid, unknown or disabled code SHALL be logged and otherwise ignored; the request SHALL still be served normally, disclosing nothing.
+
+The essential requirement is that **the WordPress user is not created until the recipient follows their own personalized link.**
 
 ---
 
-# 25. Landing Page Scope Limitation
+# 25. Action Code Scope Limitation
 
-The public landing pages reached by an action code operate under an unauthenticated code, not a WordPress session. Their capability is deliberately minimal.
+A request carrying an action code operates under that code alone, not a WordPress session. Its capability is deliberately minimal.
 
-On these pages the ONLY permitted effect is:
+The ONLY permitted effect of an action code is:
 
 ```text
 For the single email address encoded in the action code:
@@ -839,7 +843,7 @@ For the single email address encoded in the action code:
   identified by the code's campaign code
 ```
 
-The plugin MUST NOT, on these pages:
+The plugin MUST NOT, on the strength of an action code:
 
 * Establish a WordPress login session or authentication cookie for the recipient.
 * Issue a password, password-reset link, or magic login link.
@@ -848,7 +852,7 @@ The plugin MUST NOT, on these pages:
 * Expose or modify any other user's data.
 * Accept an email address supplied in the request in place of the one encoded in the code.
 
-Merely loading an action URL MUST NOT change any state. State changes SHALL require the recipient's explicit action on the page (for example a form submission), so that mail scanners, link previewers, and prefetchers cannot record opt-ins or opt-outs on the recipient's behalf.
+Merely loading the unsubscribe URL MUST NOT change any state: an opt-out SHALL require the recipient's explicit submission on that page, so that mail scanners, link previewers and prefetchers cannot unsubscribe anyone on their behalf. Opt-in is deliberately the exception (Sections 19 and 24): following the personalized CTA link is itself the opt-in, and it is recorded without a confirmation step.
 
 ---
 
@@ -989,7 +993,7 @@ Repeated use MUST NOT:
 * Affect the state of any other campaign.
 * Cause an application-level failure merely because the action was previously completed.
 
-Likewise, repeated processing of the same opt-in action MUST NOT create duplicate users.
+Likewise, repeated processing of the same opt-in action MUST NOT create duplicate users. Because a CTA link records its opt-in on sight, repeat visits SHALL be treated as no-ops while the campaign already stands at `OPTED_IN` for that address, so reloads and link scanners do not inflate the recorded action counts.
 
 Because the action code is stateless and reusable, the same code MAY be followed any number of times, including after the campaign has ended, unless its campaign code has been disabled.
 
@@ -1131,7 +1135,7 @@ An invalid, unknown, or malformed action code MUST NOT:
 * Create opt-in metadata for any campaign.
 * Create opt-out metadata for any campaign.
 
-The public response SHOULD present a single generic failure message. It SHOULD NOT reveal:
+On the unsubscribe endpoint, the public response SHOULD present a single generic failure message. On any other URL the code is simply ignored and the requested page is served unchanged, which reveals nothing by construction. Neither response SHOULD reveal:
 
 * Whether a particular email address exists in WordPress.
 * Whether the campaign code portion was valid.
