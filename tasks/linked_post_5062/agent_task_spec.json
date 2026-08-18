@@ -1,0 +1,29 @@
+{
+    "task_id": "1",
+    "run_id": "5055-20260818074949",
+    "plugin_id": "5055",
+    "linked_post_id": 5062,
+    "agent_type": "claude_code",
+    "project_root": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062",
+    "node_dir": "/var/www/html/wp-content/plugins/aiplugin5055",
+    "task_dir": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062",
+    "linked_post_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/linked_post_id_5062.json",
+    "agent_task_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/agent_task.json",
+    "instructions_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/agent_instructions.txt",
+    "outputs_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/agent_output.txt",
+    "output_log_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/agent_output.log",
+    "logs_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/logs",
+    "status_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/status.json",
+    "events_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/events.jsonl",
+    "cancel_request_path": "/var/www/html/wp-content/plugins/aiplugin5055/tasks/linked_post_5062/cancel.request",
+    "task_workspace_protocol": {
+        "version": 1,
+        "minor": 3
+    },
+    "capabilities_required": [
+        "supports_patch_apply",
+        "supports_shell_exec",
+        "supports_multistep"
+    ],
+    "created_at": "2026-08-18T07:49:49+00:00"
+}

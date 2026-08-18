@@ -1,0 +1,31 @@
+
+I've successfully consolidated the Settings UI into the Tools UI. Here's what was changed:
+
+## Changes Made:
+
+### 1. Updated [`CampaignsView.php`](src/aiplugin5055/Admin/CampaignsView.php)
+- Removed the "Settings" button link from the page header
+- Added `use aiplugin5055\Support\Settings` import
+- Added new `render_settings()` method that displays the opt-in/opt-out page configuration form
+- Integrated the settings section at the bottom of the campaigns list page
+
+### 2. Updated [`CampaignsScreen.php`](src/aiplugin5055/Admin/CampaignsScreen.php)
+- Added `ACTION_SAVE_SETTINGS` constant
+- Added `handle_save_settings()` method to process settings form submissions
+- Updated `notice()` method to handle 'settings_saved' success message
+
+### 3. Updated [`aiplugin5055.php`](aiplugin5055.php)
+- Removed `use aiplugin5055\Admin\SettingsScreen` import
+- Removed SettingsScreen menu registration from the `admin_menu` hook
+- Replaced the old `admin_post_` action for SettingsScreen with the new CampaignsScreen handler
+
+## Result:
+
+The plugin now has a single admin menu item under **Tools → Email Campaigns** that contains:
+- Campaign creation form
+- Campaign list table
+- Tracking code generator
+- Rejected codes log
+- **Settings section** (opt-in/opt-out page configuration)
+
+The redundant Settings submenu item has been completely removed. All functionality is preserved and now accessible from one consolidated interface.

@@ -14,6 +14,7 @@ use aiplugin5055\Campaigns\CampaignRepository;
 use aiplugin5055\Meta\MetaKeys;
 use aiplugin5055\Rest\Permissions;
 use aiplugin5055\Support\RejectedCodeLog;
+use aiplugin5055\Support\Settings;
 
 class CampaignsView {
 
@@ -124,6 +125,7 @@ class CampaignsView {
 			<?php
 			self::render_generator( $campaigns );
 			self::render_rejected_log();
+			self::render_settings();
 			?>
 		</div>
 		<?php
@@ -422,5 +424,95 @@ class CampaignsView {
 		}
 
 		return \wp_date( \get_option( 'date_format' ) . ' ' . \get_option( 'time_format' ), $timestamp );
+	}
+
+	/**
+	 * Render the settings section for opt-in and opt-out pages.
+	 *
+	 * @return void
+	 */
+	private static function render_settings() {
+		$pages = Settings::get_pages();
+		?>
+		<hr>
+
+		<h2><?php \esc_html_e( 'Settings', 'aiplugin5055' ); ?></h2>
+
+		<p class="description">
+			<?php \esc_html_e( 'Configure the WordPress pages where opt-in and opt-out forms will be displayed.', 'aiplugin5055' ); ?>
+		</p>
+
+		<form method="post" action="<?php echo \esc_url( \admin_url( 'admin-post.php' ) ); ?>">
+			<?php \wp_nonce_field( CampaignsScreen::ACTION_SAVE_SETTINGS ); ?>
+			<input type="hidden" name="action" value="<?php echo \esc_attr( CampaignsScreen::ACTION_SAVE_SETTINGS ); ?>">
+
+			<table class="form-table" role="presentation">
+				<tbody>
+					<tr>
+						<th scope="row">
+							<label for="aiplugin5055_opt_in_page">
+								<?php \esc_html_e( 'Opt-In Page', 'aiplugin5055' ); ?>
+							</label>
+						</th>
+						<td>
+							<?php
+							\wp_dropdown_pages(
+								array(
+									'name'              => 'opt_in_page',
+									'id'                => 'aiplugin5055_opt_in_page',
+									'selected'          => $pages['opt_in_page'],
+									'show_option_none'  => \__( '— Select a page —', 'aiplugin5055' ),
+									'option_none_value' => '0',
+								)
+							);
+							?>
+							<p class="description">
+								<?php \esc_html_e( 'Select the WordPress page where users will be directed when they click opt-in (CTA) links. The plugin will display the opt-in confirmation form on this page.', 'aiplugin5055' ); ?>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<label for="aiplugin5055_opt_out_page">
+								<?php \esc_html_e( 'Opt-Out Page', 'aiplugin5055' ); ?>
+							</label>
+						</th>
+						<td>
+							<?php
+							\wp_dropdown_pages(
+								array(
+									'name'              => 'opt_out_page',
+									'id'                => 'aiplugin5055_opt_out_page',
+									'selected'          => $pages['opt_out_page'],
+									'show_option_none'  => \__( '— Select a page —', 'aiplugin5055' ),
+									'option_none_value' => '0',
+								)
+							);
+							?>
+							<p class="description">
+								<?php \esc_html_e( 'Select the WordPress page where users will be directed when they click unsubscribe links. The plugin will display the unsubscribe confirmation form on this page.', 'aiplugin5055' ); ?>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<?php \submit_button( \__( 'Save Settings', 'aiplugin5055' ) ); ?>
+		</form>
+
+		<h3><?php \esc_html_e( 'How It Works', 'aiplugin5055' ); ?></h3>
+		<p>
+			<?php \esc_html_e( 'When you select pages above, the plugin will:', 'aiplugin5055' ); ?>
+		</p>
+		<ul style="list-style: disc; margin-left: 2em;">
+			<li><?php \esc_html_e( 'Direct opt-in and opt-out links to the selected WordPress pages instead of custom URLs', 'aiplugin5055' ); ?></li>
+			<li><?php \esc_html_e( 'Automatically display the appropriate confirmation form on those pages using WordPress content filters', 'aiplugin5055' ); ?></li>
+			<li><?php \esc_html_e( 'Preserve all existing functionality including rate limiting, security checks, and action recording', 'aiplugin5055' ); ?></li>
+		</ul>
+		<p>
+			<strong><?php \esc_html_e( 'Note:', 'aiplugin5055' ); ?></strong>
+			<?php \esc_html_e( 'If no pages are selected, the plugin will fall back to the original custom URL behavior.', 'aiplugin5055' ); ?>
+		</p>
+		<?php
 	}
 }

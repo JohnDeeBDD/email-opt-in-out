@@ -22,6 +22,7 @@ class CampaignsScreen {
 	const ACTION_CREATE = 'aiplugin5055_create_campaign';
 	const ACTION_UPDATE = 'aiplugin5055_update_campaign';
 	const ACTION_DELETE = 'aiplugin5055_delete_campaign';
+	const ACTION_SAVE_SETTINGS = 'aiplugin5055_save_settings';
 
 	/**
 	 * Add the screen to the Tools menu.
@@ -173,6 +174,23 @@ class CampaignsScreen {
 	}
 
 	/**
+	 * Handle settings save for opt-in and opt-out pages.
+	 *
+	 * @return void
+	 */
+	public function handle_save_settings() {
+		$this->authorize();
+		\check_admin_referer( self::ACTION_SAVE_SETTINGS );
+
+		$opt_in_page  = isset( $_POST['opt_in_page'] ) ? (int) $_POST['opt_in_page'] : 0;
+		$opt_out_page = isset( $_POST['opt_out_page'] ) ? (int) $_POST['opt_out_page'] : 0;
+
+		Settings::update_pages( $opt_in_page, $opt_out_page );
+
+		$this->redirect_back( array( 'aiplugin5055_notice' => 'settings_saved' ) );
+	}
+
+	/**
 	 * URL of the screen, optionally with extra query args.
 	 *
 	 * @param array $args Extra query args.
@@ -216,6 +234,11 @@ class CampaignsScreen {
 							\__( 'Campaign record deleted. Recorded opt-in and opt-out metadata was preserved, and %s will never be reissued.', 'aiplugin5055' ),
 							$code
 						),
+					);
+				case 'settings_saved':
+					return array(
+						'type'    => 'success',
+						'message' => \__( 'Settings saved successfully.', 'aiplugin5055' ),
 					);
 			}
 		}

@@ -1,0 +1,35 @@
+{
+    "taskId": 1,
+    "name": "Plugin Task1",
+    "description": "A task to be executed by the agent.",
+    "instruction": "Please help me with the WordPress plugin. [user]: What is currently happening is that the system creates the ability for the user to click the CTA link or the unsubscribe link, and they are rendered a UI when they visit those links. The expected behavior when the user clicks those links, is that they should be brought to an actual WordPress page, not a custom UI generation. Therefore, we need a selector in the admin UI where the admin can set the location of the opt in and opt out pages. Instead of generating a custom UI, the UI for our plugin should be rendered as wordpress content filters on those designated posts. Please update the functionality so that the links go to actual wordpress pages, not just custom UIs. Please create a todo list and start implementing this step by step. You are in YOLO mode. Please update the plugin code only, testing is not your responsibility for now.",
+    "mode": "code",
+    "options": {
+        "newTab": true,
+        "timeout": 180000
+    },
+    "continueOnFailure": false,
+    "beforeTask": {
+        "command": "echo 'Preparing environment for plugin 5055' && mkdir -p ./logs ./temp && test -f spec.md && echo 'Spec file found' || echo 'Warning: No spec file found'",
+        "workingDirectory": "./",
+        "timeout": 30000,
+        "continueOnFailure": false,
+        "description": "Prepare environment and validate required files before task execution",
+        "environment": {
+            "PLUGIN_ID": "5055",
+            "TASK_TYPE": "preparation",
+            "BEFORE_TASK": "true"
+        }
+    },
+    "callback": {
+        "command": "echo 'Plugin generated for post 5055: ' && cat aiplugin5055.php",
+        "workingDirectory": "./",
+        "timeout": 10000,
+        "continueOnFailure": true,
+        "description": "Process a task",
+        "environment": {
+            "PLUGIN_ID": "5055",
+            "TASK_TYPE": "task"
+        }
+    }
+}

@@ -17,6 +17,9 @@ class Settings {
 	/** Option holding the whole settings array. */
 	const OPTION = 'aiplugin5055_settings';
 
+	/** Option holding page configuration. */
+	const PAGES_OPTION = 'aiplugin5055_pages';
+
 	/**
 	 * Unambiguous, URL-safe, single-case alphabet (PRD Section 13 / 16).
 	 * 32 characters: A-Z without I and O, plus 2-9. No characters that a
@@ -114,14 +117,44 @@ class Settings {
 	}
 
 	/**
-	 * Capability required for every administrative operation (PRD Section 18).
-	 *
-	 * @return string
-	 */
+		* Capability required for every administrative operation (PRD Section 18).
+		*
+		* @return string
+		*/
 	public static function admin_capability() {
 		$capability = \apply_filters( 'aiplugin5055_admin_capability', 'manage_options' );
 
 		return \is_string( $capability ) && '' !== $capability ? $capability : 'manage_options';
+	}
+
+	/**
+		* Get the page configuration (opt-in and opt-out page IDs).
+		*
+		* @return array{opt_in_page:int,opt_out_page:int}
+		*/
+	public static function get_pages() {
+		$pages = \get_option( self::PAGES_OPTION, array() );
+
+		return array(
+			'opt_in_page'  => isset( $pages['opt_in_page'] ) ? (int) $pages['opt_in_page'] : 0,
+			'opt_out_page' => isset( $pages['opt_out_page'] ) ? (int) $pages['opt_out_page'] : 0,
+		);
+	}
+
+	/**
+		* Update the page configuration.
+		*
+		* @param int $opt_in_page_id  Page ID for opt-in actions.
+		* @param int $opt_out_page_id Page ID for opt-out actions.
+		* @return bool
+		*/
+	public static function update_pages( $opt_in_page_id, $opt_out_page_id ) {
+		$pages = array(
+			'opt_in_page'  => (int) $opt_in_page_id,
+			'opt_out_page' => (int) $opt_out_page_id,
+		);
+
+		return \update_option( self::PAGES_OPTION, $pages );
 	}
 
 	/**

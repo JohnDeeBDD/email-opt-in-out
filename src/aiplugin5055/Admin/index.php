@@ -1,3 +1,2 @@
 <?php
-
-die("error");
+// Silence is golden.

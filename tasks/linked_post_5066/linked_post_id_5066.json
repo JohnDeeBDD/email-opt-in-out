@@ -1,0 +1,19 @@
+{
+    "api_response": {
+        "post_id": 5055,
+        "linked_post_id": 5066,
+        "post_author": "JohnDee",
+        "post_author_id": 1,
+        "conversation_transcript": "[user]: Currently the plugin has two admin UI screens, one in the \"Tools\" submenu and one in the \"Settings\" submenu. This is redundant. Since the \"Settings\" is just a few items, please collapse the \"Settings\" UI and its features into the \"Tools\" UI. That way there will be just one menu item for admins to access our plugin features.",
+        "post_title": "WordPress Email Opt-In / Opt-Out Management Plugin",
+        "version": 5,
+        "model": "zoo"
+    },
+    "metadata": {
+        "created_at": "2026-08-18T08:28:36+00:00",
+        "api_endpoint": "https://aiplugin.dev/wp-json/ai-plugin-dev/v1/next-build",
+        "plugin_slug": "aiplugin5055",
+        "filename": "linked_post_id_5066.json",
+        "linked_post_id": 5066
+    }
+}

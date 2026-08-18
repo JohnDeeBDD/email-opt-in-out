@@ -1,0 +1,437 @@
+[2026-08-18T07:56:18.493Z] [INFO] Claimed task 1 (mode "code")
+[2026-08-18T07:56:18.496Z] [INFO] ZooCode webview launched via API
+[2026-08-18T07:56:18.497Z] [INFO] ZooCode became ready after 0 polls
+[2026-08-18T07:56:18.629Z] [INFO] ZooCode task 01a013df-073b-7315-875a-a9317c128f94 started in mode "code"
+[2026-08-18T07:56:19.476Z] [DEBUG] [controller] state=running | {"kind":"task","actionable":false}
+[2026-08-18T07:56:25.389Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:25.391Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:25.395Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:25.514Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:30.512Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:30.544Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:30.565Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:30.586Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:34.386Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:34.708Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:34.743Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:38.643Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:56:43.852Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php
+[2026-08-18T07:56:44.055Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:44.064Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":false}
+[2026-08-18T07:56:44.329Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:56:44.334Z] [DEBUG] [window] no active editor
+[2026-08-18T07:56:44.549Z] [DEBUG] [document] opened: Settings.php
+[2026-08-18T07:56:44.641Z] [DEBUG] [window] visible editors: 1 | ["Settings.php"]
+[2026-08-18T07:56:44.652Z] [DEBUG] [window] visible editors: 2 | ["Settings.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:44.655Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":true}
+[2026-08-18T07:56:44.882Z] [DEBUG] [window] window focused
+[2026-08-18T07:56:45.391Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:45.505Z] [INFO] Ask policy: reject ZooCode's "tool" request (credentials)
+[2026-08-18T07:56:45.542Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php
+[2026-08-18T07:56:45.613Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:45.618Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:56:45.624Z] [DEBUG] [window] no active editor
+[2026-08-18T07:56:45.642Z] [DEBUG] [document] closed: Settings.php
+[2026-08-18T07:56:45.647Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:45.666Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:45.670Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":false}
+[2026-08-18T07:56:46.055Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:55.826Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:56:55.834Z] [DEBUG] [window] no active editor
+[2026-08-18T07:56:55.842Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:55.901Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:55.905Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":false}
+[2026-08-18T07:56:56.096Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:56:56.102Z] [DEBUG] [window] no active editor
+[2026-08-18T07:56:56.145Z] [DEBUG] [document] opened: Settings.php
+[2026-08-18T07:56:56.216Z] [DEBUG] [window] visible editors: 1 | ["Settings.php"]
+[2026-08-18T07:56:56.227Z] [DEBUG] [window] visible editors: 2 | ["Settings.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:56.230Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":true}
+[2026-08-18T07:56:56.524Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:56.535Z] [INFO] Ask policy: reject ZooCode's "tool" request (credentials)
+[2026-08-18T07:56:56.563Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php
+[2026-08-18T07:56:56.593Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:56.595Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:56:56.597Z] [DEBUG] [window] no active editor
+[2026-08-18T07:56:56.606Z] [DEBUG] [document] closed: Settings.php
+[2026-08-18T07:56:56.608Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:56:56.618Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php"]
+[2026-08-18T07:56:56.619Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php","language":"php","dirty":false}
+[2026-08-18T07:56:56.903Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:57:02.463Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php
+[2026-08-18T07:57:02.515Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:02.526Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:02.560Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php"]
+[2026-08-18T07:57:02.566Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php","language":"php","dirty":false}
+[2026-08-18T07:57:02.593Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Settings.php.git
+[2026-08-18T07:57:02.685Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:02.688Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:02.727Z] [DEBUG] [document] opened: SettingsScreen.php
+[2026-08-18T07:57:02.731Z] [DEBUG] [window] visible editors: 1 | ["SettingsScreen.php"]
+[2026-08-18T07:57:02.759Z] [DEBUG] [window] visible editors: 2 | ["SettingsScreen.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php"]
+[2026-08-18T07:57:02.763Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php","language":"php","dirty":false}
+[2026-08-18T07:57:12.020Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php
+[2026-08-18T07:57:25.468Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php
+[2026-08-18T07:57:27.884Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:57:27.922Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php
+[2026-08-18T07:57:27.960Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php"]
+[2026-08-18T07:57:27.962Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:27.967Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:27.970Z] [DEBUG] [document] closed: SettingsScreen.php
+[2026-08-18T07:57:27.979Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php"]
+[2026-08-18T07:57:27.981Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/SettingsScreen.php","language":"php","dirty":false}
+[2026-08-18T07:57:32.966Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php
+[2026-08-18T07:57:33.011Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:33.023Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:33.038Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php"]
+[2026-08-18T07:57:33.042Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php","language":"php","dirty":false}
+[2026-08-18T07:57:33.131Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:33.136Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:33.184Z] [DEBUG] [document] opened: index.php
+[2026-08-18T07:57:33.270Z] [DEBUG] [window] visible editors: 1 | ["index.php"]
+[2026-08-18T07:57:33.294Z] [DEBUG] [window] visible editors: 2 | ["index.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php"]
+[2026-08-18T07:57:33.308Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php","language":"php","dirty":false}
+[2026-08-18T07:57:33.671Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php.git
+[2026-08-18T07:57:34.368Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php
+[2026-08-18T07:57:45.065Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:57:45.096Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php
+[2026-08-18T07:57:45.125Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php"]
+[2026-08-18T07:57:45.128Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:45.134Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:45.145Z] [DEBUG] [document] closed: index.php
+[2026-08-18T07:57:45.147Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php.git
+[2026-08-18T07:57:45.173Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php"]
+[2026-08-18T07:57:45.175Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php","language":"php","dirty":false}
+[2026-08-18T07:57:45.439Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php.git
+[2026-08-18T07:57:46.242Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php
+[2026-08-18T07:57:46.303Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:46.308Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:46.334Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:46.338Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:57:46.365Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php.git
+[2026-08-18T07:57:46.475Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:46.483Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:46.516Z] [DEBUG] [document] opened: Urls.php
+[2026-08-18T07:57:46.610Z] [DEBUG] [window] visible editors: 1 | ["Urls.php"]
+[2026-08-18T07:57:46.617Z] [DEBUG] [window] visible editors: 2 | ["Urls.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:46.620Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":true}
+[2026-08-18T07:57:46.729Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:57:46.732Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:57:46.814Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:57:46.848Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php
+[2026-08-18T07:57:46.880Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:46.882Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:46.885Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:46.888Z] [DEBUG] [document] closed: Urls.php
+[2026-08-18T07:57:46.897Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:46.899Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:57:47.167Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:57:52.838Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:52.844Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:52.876Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php"]
+[2026-08-18T07:57:52.878Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/index.php","language":"php","dirty":false}
+[2026-08-18T07:57:52.889Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:57:52.938Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:52.941Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:52.958Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:52.960Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:57:53.119Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:53.125Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:53.166Z] [DEBUG] [document] opened: Urls.php
+[2026-08-18T07:57:53.203Z] [DEBUG] [window] visible editors: 1 | ["Urls.php"]
+[2026-08-18T07:57:53.210Z] [DEBUG] [window] visible editors: 2 | ["Urls.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:53.212Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":true}
+[2026-08-18T07:57:53.403Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:57:53.424Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php
+[2026-08-18T07:57:53.453Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:53.456Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:57:53.458Z] [DEBUG] [window] no active editor
+[2026-08-18T07:57:53.463Z] [DEBUG] [document] closed: Urls.php
+[2026-08-18T07:57:53.475Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:57:53.478Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:57:53.750Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:58:01.497Z] [DEBUG] [window] window blurred
+[2026-08-18T07:58:19.847Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php
+[2026-08-18T07:58:19.903Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:19.912Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:19.927Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:19.931Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:19.947Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php.git
+[2026-08-18T07:58:20.133Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:20.138Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:20.182Z] [DEBUG] [document] opened: ActionEndpoint.php
+[2026-08-18T07:58:20.250Z] [DEBUG] [window] visible editors: 1 | ["ActionEndpoint.php"]
+[2026-08-18T07:58:20.261Z] [DEBUG] [window] visible editors: 2 | ["ActionEndpoint.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:20.264Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":true}
+[2026-08-18T07:58:20.571Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:20.579Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:58:20.609Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php
+[2026-08-18T07:58:20.648Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:20.650Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:20.652Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:20.661Z] [DEBUG] [document] closed: ActionEndpoint.php
+[2026-08-18T07:58:20.663Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:20.671Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:20.674Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:20.958Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:27.737Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:27.743Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:27.773Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:58:27.776Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:58:27.784Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:27.854Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:27.859Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:27.874Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:27.877Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:28.068Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:28.074Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:28.118Z] [DEBUG] [document] opened: ActionEndpoint.php
+[2026-08-18T07:58:28.182Z] [DEBUG] [window] visible editors: 1 | ["ActionEndpoint.php"]
+[2026-08-18T07:58:28.190Z] [DEBUG] [window] visible editors: 2 | ["ActionEndpoint.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:28.192Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":true}
+[2026-08-18T07:58:28.344Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:58:28.382Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php
+[2026-08-18T07:58:28.421Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:28.423Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:28.427Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:28.431Z] [DEBUG] [document] closed: ActionEndpoint.php
+[2026-08-18T07:58:28.440Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:28.443Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:28.716Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:45.858Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:45.869Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:45.887Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php"]
+[2026-08-18T07:58:45.891Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Support/Urls.php","language":"php","dirty":false}
+[2026-08-18T07:58:45.904Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:45.999Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:46.008Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:46.021Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:46.025Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:46.241Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:46.248Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:46.296Z] [DEBUG] [document] opened: ActionEndpoint.php
+[2026-08-18T07:58:46.461Z] [DEBUG] [window] visible editors: 1 | ["ActionEndpoint.php"]
+[2026-08-18T07:58:46.470Z] [DEBUG] [window] visible editors: 2 | ["ActionEndpoint.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:46.473Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":true}
+[2026-08-18T07:58:46.599Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:46.601Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:46.692Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:58:46.776Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:46.795Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php
+[2026-08-18T07:58:46.829Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:46.833Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:46.836Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:46.849Z] [DEBUG] [document] closed: ActionEndpoint.php
+[2026-08-18T07:58:46.851Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:46.862Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php"]
+[2026-08-18T07:58:46.866Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php","language":"php","dirty":false}
+[2026-08-18T07:58:47.151Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:51.622Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php
+[2026-08-18T07:58:51.668Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:51.677Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:51.689Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php"]
+[2026-08-18T07:58:51.695Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php","language":"php","dirty":false}
+[2026-08-18T07:58:51.704Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionEndpoint.php.git
+[2026-08-18T07:58:51.813Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:58:51.829Z] [DEBUG] [window] no active editor
+[2026-08-18T07:58:51.955Z] [DEBUG] [document] opened: PageContentFilter.php
+[2026-08-18T07:58:51.974Z] [DEBUG] [window] visible editors: 1 | ["PageContentFilter.php"]
+[2026-08-18T07:58:52.002Z] [DEBUG] [window] visible editors: 2 | ["PageContentFilter.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php"]
+[2026-08-18T07:58:52.018Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php","language":"php","dirty":true}
+[2026-08-18T07:58:53.361Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php
+[2026-08-18T07:59:01.808Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php
+[2026-08-18T07:59:09.171Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:59:09.206Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php
+[2026-08-18T07:59:09.248Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php"]
+[2026-08-18T07:59:09.250Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:09.256Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:09.284Z] [DEBUG] [document] closed: PageContentFilter.php
+[2026-08-18T07:59:09.298Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php"]
+[2026-08-18T07:59:09.301Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/PageContentFilter.php","language":"php","dirty":false}
+[2026-08-18T07:59:37.680Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php
+[2026-08-18T07:59:37.719Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:37.731Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:37.747Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php"]
+[2026-08-18T07:59:37.750Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php","language":"php","dirty":false}
+[2026-08-18T07:59:37.981Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:37.988Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:38.040Z] [DEBUG] [document] opened: ActionPageView.php
+[2026-08-18T07:59:38.178Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php.git
+[2026-08-18T07:59:38.207Z] [INFO] Ask policy: reject ZooCode's "tool" request (credentials)
+[2026-08-18T07:59:38.228Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php
+[2026-08-18T07:59:38.271Z] [DEBUG] [document] closed: ActionPageView.php
+[2026-08-18T07:59:38.285Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php"]
+[2026-08-18T07:59:38.289Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php","language":"php","dirty":false}
+[2026-08-18T07:59:47.176Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php
+[2026-08-18T07:59:47.222Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:47.231Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:47.255Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:47.259Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T07:59:47.288Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php.git
+[2026-08-18T07:59:47.493Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:47.498Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:47.542Z] [DEBUG] [document] opened: aiplugin5055.php
+[2026-08-18T07:59:47.603Z] [DEBUG] [window] visible editors: 1 | ["aiplugin5055.php"]
+[2026-08-18T07:59:47.609Z] [DEBUG] [window] visible editors: 2 | ["aiplugin5055.php","/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:47.612Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":true}
+[2026-08-18T07:59:47.813Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:59:47.859Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php
+[2026-08-18T07:59:47.907Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:47.909Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:47.911Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:47.914Z] [DEBUG] [document] closed: aiplugin5055.php
+[2026-08-18T07:59:47.920Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:47.923Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T07:59:48.196Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T07:59:54.697Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:54.703Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:54.766Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php"]
+[2026-08-18T07:59:54.769Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php","language":"php","dirty":false}
+[2026-08-18T07:59:54.779Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T07:59:54.825Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:54.831Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:54.847Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:54.849Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T07:59:55.031Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:55.036Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:55.078Z] [DEBUG] [document] opened: aiplugin5055.php
+[2026-08-18T07:59:55.133Z] [DEBUG] [window] visible editors: 1 | ["aiplugin5055.php"]
+[2026-08-18T07:59:55.147Z] [DEBUG] [window] visible editors: 2 | ["aiplugin5055.php","/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:55.150Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":true}
+[2026-08-18T07:59:55.427Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T07:59:55.440Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T07:59:55.532Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php
+[2026-08-18T07:59:55.618Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:55.621Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T07:59:55.623Z] [DEBUG] [window] no active editor
+[2026-08-18T07:59:55.637Z] [DEBUG] [document] closed: aiplugin5055.php
+[2026-08-18T07:59:55.639Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T07:59:55.647Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T07:59:55.650Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T07:59:55.983Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:01.176Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:01.182Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:01.212Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php"]
+[2026-08-18T08:00:01.215Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php","language":"php","dirty":false}
+[2026-08-18T08:00:01.222Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:01.288Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:01.297Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:01.307Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:01.310Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T08:00:01.412Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:01.419Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:01.477Z] [DEBUG] [document] opened: aiplugin5055.php
+[2026-08-18T08:00:01.527Z] [DEBUG] [window] visible editors: 1 | ["aiplugin5055.php"]
+[2026-08-18T08:00:01.544Z] [DEBUG] [window] visible editors: 2 | ["aiplugin5055.php","/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:01.553Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":true}
+[2026-08-18T08:00:01.826Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:01.885Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php
+[2026-08-18T08:00:01.922Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:01.924Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:01.927Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:01.933Z] [DEBUG] [document] closed: aiplugin5055.php
+[2026-08-18T08:00:01.941Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:01.944Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T08:00:02.266Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:08.339Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:08.345Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:08.368Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php"]
+[2026-08-18T08:00:08.371Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/ActionPageView.php","language":"php","dirty":false}
+[2026-08-18T08:00:08.378Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:08.453Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:08.463Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:08.478Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:08.482Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T08:00:08.635Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:08.641Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:08.701Z] [DEBUG] [document] opened: aiplugin5055.php
+[2026-08-18T08:00:08.747Z] [DEBUG] [window] visible editors: 1 | ["aiplugin5055.php"]
+[2026-08-18T08:00:08.757Z] [DEBUG] [window] visible editors: 2 | ["aiplugin5055.php","/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:08.759Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":true}
+[2026-08-18T08:00:09.056Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:09.100Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:09.450Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php
+[2026-08-18T08:00:09.481Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:09.485Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:09.488Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:09.491Z] [DEBUG] [document] closed: aiplugin5055.php
+[2026-08-18T08:00:09.492Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:09.501Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php"]
+[2026-08-18T08:00:09.504Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php","language":"php","dirty":false}
+[2026-08-18T08:00:09.832Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:15.034Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php
+[2026-08-18T08:00:15.079Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:15.086Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:15.110Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php"]
+[2026-08-18T08:00:15.114Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php","language":"php","dirty":false}
+[2026-08-18T08:00:15.121Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/aiplugin5055.php.git
+[2026-08-18T08:00:15.193Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:15.196Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:15.237Z] [DEBUG] [document] opened: index.php
+[2026-08-18T08:00:15.279Z] [DEBUG] [window] visible editors: 1 | ["index.php"]
+[2026-08-18T08:00:15.289Z] [DEBUG] [window] visible editors: 2 | ["index.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php"]
+[2026-08-18T08:00:15.292Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php","language":"php","dirty":true}
+[2026-08-18T08:00:15.558Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php.git
+[2026-08-18T08:00:16.372Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:16.408Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php
+[2026-08-18T08:00:16.441Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php"]
+[2026-08-18T08:00:16.444Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:16.450Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:16.457Z] [DEBUG] [document] closed: index.php
+[2026-08-18T08:00:16.459Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php.git
+[2026-08-18T08:00:16.468Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php"]
+[2026-08-18T08:00:16.472Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php","language":"php","dirty":false}
+[2026-08-18T08:00:16.751Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php.git
+[2026-08-18T08:00:17.570Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:21.535Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:31.441Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php
+[2026-08-18T08:00:31.490Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:31.496Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:31.516Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:31.520Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":false}
+[2026-08-18T08:00:31.577Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php.git
+[2026-08-18T08:00:31.803Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:31.808Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:31.859Z] [DEBUG] [document] opened: CampaignsView.php
+[2026-08-18T08:00:31.937Z] [DEBUG] [window] visible editors: 1 | ["CampaignsView.php"]
+[2026-08-18T08:00:31.948Z] [DEBUG] [window] visible editors: 2 | ["CampaignsView.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:31.953Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":true}
+[2026-08-18T08:00:32.380Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php.git
+[2026-08-18T08:00:32.419Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:32.512Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php
+[2026-08-18T08:00:32.562Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:32.566Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:32.569Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:32.570Z] [DEBUG] [document] closed: CampaignsView.php
+[2026-08-18T08:00:32.572Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php.git
+[2026-08-18T08:00:32.577Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:32.580Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":false}
+[2026-08-18T08:00:32.850Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php.git
+[2026-08-18T08:00:54.825Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:54.832Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:54.859Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php"]
+[2026-08-18T08:00:54.862Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Frontend/index.php","language":"php","dirty":false}
+[2026-08-18T08:00:54.868Z] [DEBUG] [document] closed: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php.git
+[2026-08-18T08:00:55.006Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:55.012Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:55.018Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:55.021Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":false}
+[2026-08-18T08:00:55.149Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:55.155Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:55.201Z] [DEBUG] [document] opened: CampaignsView.php
+[2026-08-18T08:00:55.263Z] [DEBUG] [window] visible editors: 1 | ["CampaignsView.php"]
+[2026-08-18T08:00:55.275Z] [DEBUG] [window] visible editors: 2 | ["CampaignsView.php","/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:55.278Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":true}
+[2026-08-18T08:00:55.517Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:00:55.561Z] [DEBUG] [document] saved: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php
+[2026-08-18T08:00:55.608Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:55.612Z] [DEBUG] [window] visible editors: 0 | []
+[2026-08-18T08:00:55.617Z] [DEBUG] [window] no active editor
+[2026-08-18T08:00:55.633Z] [DEBUG] [document] closed: CampaignsView.php
+[2026-08-18T08:00:55.646Z] [DEBUG] [window] visible editors: 1 | ["/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php"]
+[2026-08-18T08:00:55.650Z] [DEBUG] [window] active editor changed | {"uri":"/var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php","language":"php","dirty":false}
+[2026-08-18T08:00:55.927Z] [DEBUG] [document] opened: /var/www/html/wp-content/plugins/aiplugin5055/src/aiplugin5055/Admin/CampaignsView.php.git
+[2026-08-18T08:01:05.639Z] [INFO] Ask policy: approve ZooCode's "tool" request (in_workspace)
+[2026-08-18T08:01:34.234Z] [INFO] Ask policy: approve ZooCode's "completion_result" request (task_bookkeeping)
+[2026-08-18T08:01:34.236Z] [INFO] Treating approved completion_result as task completion (ZooCode ask mode workaround)
+[2026-08-18T08:01:34.252Z] [INFO] Task finished: completed (Task completed)

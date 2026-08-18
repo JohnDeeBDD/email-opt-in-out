@@ -1,53 +1,56 @@
 {
-    "name": "ai-plugin-dev/plugin-builder",
-    "description": "A WordPress plugin that provides a shortcode-based form interface for users to submit text content, which automatically creates private posts and corresponding plugin directories.",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Your Name"
-        }
-    ],
     "require": {
-        "php": ">=7.4",
-        "psr/log": "^1.1|^2.0|^3.0",
-        "nikic/php-parser": "^5"
-    },
-    "autoload": {
-        "psr-4": {
-            "AIPluginDev\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "": "tests/_support/"
-        }
+        "php": "^8.1 || ^8.2 || ^8.3",
+        "guzzlehttp/guzzle": "*",
+        "lucatume/wp-browser": "^3.2",
+        "codeception/codeception": "4.2.2",
+        "symfony/yaml": "^5.4"
     },
     "require-dev": {
-        "php-stubs/wordpress-stubs": "^6.8",
-        "codeception/codeception": "4.2.2",
         "codeception/module-db": "^1.0",
         "codeception/module-webdriver": "^1.0",
         "codeception/module-asserts": "^1.2",
         "codeception/module-cli": "^1.0",
         "codeception/module-phpbrowser": "^1.0",
         "codeception/module-rest": "^1.2",
-        "lucatume/wp-browser": "^3.2",
-        "guzzlehttp/guzzle": "*",
+        "behat/behat": "^3.13",
         "phpunit/php-code-coverage": "*",
-        "phpstan/phpstan": "^1.10"
+        "php-stubs/wordpress-stubs": "^6.0"
     },
     "config": {
-        "optimize-autoloader": true,
         "bin-dir": "bin",
         "allow-plugins": {
             "php-http/discovery": true
         }
     },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "Aiplugin5055\\": "src/"
+        }
+    },
     "scripts": {
-        "phpstan": "phpstan analyse",
-        "phpstan-baseline": "phpstan analyse --generate-baseline",
-        "phpstan-json": "phpstan analyse --error-format=json",
-        "phpstan-html": "php generate-html-report.php"
+        "post-install-cmd": [
+            "cp vendor/behat/gherkin/i18n.php vendor/i18n.php"
+        ],
+        "post-update-cmd": [
+            "cp vendor/behat/gherkin/i18n.php vendor/i18n.php"
+        ],
+        "test": [
+            "@test-phpunit",
+            "@test-wpunit"
+        ],
+        "test-all": [
+            "@test-phpunit",
+            "@test-wpunit",
+            "@test-acceptance"
+        ],
+        "test-phpunit": "bin/codecept run phpunit",
+        "test-wpunit": "bin/codecept run wpunit",
+        "test-acceptance": "bash .devenv/start-chromedriver.sh && bin/codecept run acceptance",
+        "test-clean": "rm -rf tests/_output/*",
+        "destroy-instance": "php destroy-testing-instance.php"
     }
 }

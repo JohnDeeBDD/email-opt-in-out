@@ -1,0 +1,22 @@
+
+# Bootstrap-generated harness files
+/vendor/
+/bin/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.env
+.env.local
+tests/_support/_generated/
+.devenv/
+docker-compose.yml
+docker-compose.node.yml
+Makefile
+codeception.yml
+tests/*.suite.yml
+!tests/*.*.suite.yml
+.harness-manifest.json

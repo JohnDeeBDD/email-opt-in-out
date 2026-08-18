@@ -17,6 +17,7 @@ use aiplugin5055\Campaigns\CampaignRepository;
 use aiplugin5055\Codec\ActionCode;
 use aiplugin5055\Support\RateLimiter;
 use aiplugin5055\Support\RejectedCodeLog;
+use aiplugin5055\Support\Settings;
 use aiplugin5055\Support\Urls;
 
 class ActionEndpoint {
@@ -85,6 +86,10 @@ class ActionEndpoint {
 	/**
 	 * Handle an action request, if this is one.
 	 *
+	 * This method handles both custom URL endpoints and WordPress page-based endpoints.
+	 * When using WordPress pages, it stores the action data in a transient for the
+	 * content filter to retrieve.
+	 *
 	 * @return void
 	 */
 	public function handle() {
@@ -94,7 +99,12 @@ class ActionEndpoint {
 			return;
 		}
 
-		$this->prepare_response();
+		// Check if we're on a WordPress page (not a custom endpoint).
+		$on_wp_page = $this->is_on_wordpress_page();
+
+		if ( ! $on_wp_page ) {
+			$this->prepare_response();
+		}
 
 		$is_submission = $this->is_submission();
 
@@ -103,6 +113,10 @@ class ActionEndpoint {
 			$is_submission ? self::SUBMIT_LIMIT : self::VIEW_LIMIT,
 			self::WINDOW
 		) ) {
+			if ( $on_wp_page ) {
+				$this->store_action_data( 'error', array( 'status' => 429 ) );
+				return;
+			}
 			ActionPageView::render_error( 429 );
 			exit;
 		}
@@ -111,6 +125,10 @@ class ActionEndpoint {
 		$parsed   = ActionCode::parse( $raw_code );
 
 		if ( ! $parsed['ok'] ) {
+			if ( $on_wp_page ) {
+				$this->reject_on_page( $parsed['reason'], $raw_code, $action );
+				return;
+			}
 			$this->reject( $parsed['reason'], $raw_code, $action );
 		}
 
@@ -119,6 +137,10 @@ class ActionEndpoint {
 		// Unknown, deleted and disabled campaigns are all refused, and the
 		// refusal looks identical to every other failure.
 		if ( ! CampaignRepository::is_usable( $parsed['campaign_code'] ) || ! $campaign ) {
+			if ( $on_wp_page ) {
+				$this->reject_on_page( 'campaign_not_usable', $raw_code, $action );
+				return;
+			}
 			$this->reject( 'campaign_not_usable', $raw_code, $action );
 		}
 
@@ -129,6 +151,15 @@ class ActionEndpoint {
 		$action_code = ActionCode::build( $parsed['campaign_code'], $parsed['email'] );
 
 		if ( ! $is_submission ) {
+			if ( $on_wp_page ) {
+				$this->store_action_data( 'confirm', array(
+					'action'      => $action,
+					'campaign'    => $campaign,
+					'email'       => $parsed['email'],
+					'action_code' => $action_code,
+				) );
+				return;
+			}
 			ActionPageView::render_confirm( $action, $campaign, $parsed['email'], $action_code );
 			exit;
 		}
@@ -146,8 +177,21 @@ class ActionEndpoint {
 		);
 
 		if ( \is_wp_error( $result ) ) {
+			if ( $on_wp_page ) {
+				$this->store_action_data( 'error', array( 'status' => 500 ) );
+				return;
+			}
 			ActionPageView::render_error( 500 );
 			exit;
+		}
+
+		if ( $on_wp_page ) {
+			$this->store_action_data( 'result', array(
+				'action'   => $action,
+				'campaign' => $campaign,
+				'email'    => $parsed['email'],
+			) );
+			return;
 		}
 
 		ActionPageView::render_result( $action, $campaign, $parsed['email'] );
@@ -222,5 +266,65 @@ class ActionEndpoint {
 		\nocache_headers();
 		\status_header( 200 );
 		\show_admin_bar( false );
+	}
+
+	/**
+	 * Check if we're on a WordPress page (not a custom endpoint).
+	 *
+	 * @return bool
+	 */
+	private function is_on_wordpress_page() {
+		$pages = Settings::get_pages();
+		
+		if ( empty( $pages['opt_in_page'] ) && empty( $pages['opt_out_page'] ) ) {
+			return false;
+		}
+
+		return \is_page( array( $pages['opt_in_page'], $pages['opt_out_page'] ) );
+	}
+
+	/**
+	 * Store action data in a transient for the content filter to retrieve.
+	 *
+	 * @param string $type Type of data: 'confirm', 'result', or 'error'.
+	 * @param array  $data The data to store.
+	 * @return void
+	 */
+	private function store_action_data( $type, array $data ) {
+		$key = $this->get_action_data_key();
+		
+		\set_transient(
+			$key,
+			array(
+				'type' => $type,
+				'data' => $data,
+			),
+			300 // 5 minutes
+		);
+	}
+
+	/**
+	 * Get the transient key for storing action data.
+	 *
+	 * @return string
+	 */
+	private function get_action_data_key() {
+		// Use a combination of session ID and IP hash for uniqueness.
+		$identifier = RateLimiter::client_ip_hash();
+		
+		return 'aiplugin5055_action_' . substr( $identifier, 0, 16 );
+	}
+
+	/**
+	 * Log rejection and store error data for WordPress page display.
+	 *
+	 * @param string $reason   Failure reason.
+	 * @param string $raw_code Submitted code.
+	 * @param string $endpoint Endpoint that rejected it.
+	 * @return void
+	 */
+	private function reject_on_page( $reason, $raw_code, $endpoint ) {
+		RejectedCodeLog::record( $reason, $raw_code, $endpoint );
+		$this->store_action_data( 'error', array( 'status' => 200 ) );
 	}
 }

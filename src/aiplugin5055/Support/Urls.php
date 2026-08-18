@@ -7,6 +7,8 @@
 
 namespace aiplugin5055\Support;
 
+use aiplugin5055\Support\Settings;
+
 class Urls {
 
 	/** Query var that selects the action. */
@@ -39,8 +41,8 @@ class Urls {
 	/**
 	 * Build the public URL for an action code.
 	 *
-	 * Falls back to a plain query string when the site is not using pretty
-	 * permalinks, so the links work on any configuration.
+	 * If WordPress pages are configured for opt-in/opt-out, uses those pages.
+	 * Otherwise, falls back to custom rewrite rules or plain query strings.
 	 *
 	 * @param string $action       ACTION_OPT_IN or ACTION_OPT_OUT.
 	 * @param string $action_code  The tracking code.
@@ -49,12 +51,29 @@ class Urls {
 	public static function action_url( $action, $action_code ) {
 		$action = self::ACTION_OPT_OUT === $action ? self::ACTION_OPT_OUT : self::ACTION_OPT_IN;
 
+		// Check if WordPress pages are configured.
+		$pages   = Settings::get_pages();
+		$page_id = self::ACTION_OPT_OUT === $action ? $pages['opt_out_page'] : $pages['opt_in_page'];
+
+		if ( $page_id > 0 && \get_post_status( $page_id ) === 'publish' ) {
+			// Use the configured WordPress page.
+			return \add_query_arg(
+				array(
+					self::ACTION_VAR => $action,
+					self::CODE_VAR   => $action_code,
+				),
+				\get_permalink( $page_id )
+			);
+		}
+
+		// Fall back to custom rewrite rules.
 		if ( \get_option( 'permalink_structure' ) ) {
 			$slug = self::ACTION_OPT_OUT === $action ? self::opt_out_slug() : self::opt_in_slug();
 
 			return \add_query_arg( self::CODE_VAR, $action_code, \home_url( '/' . $slug . '/' ) );
 		}
 
+		// Fall back to plain query strings.
 		return \add_query_arg(
 			array(
 				self::ACTION_VAR => $action,

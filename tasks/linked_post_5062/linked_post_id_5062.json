@@ -1,0 +1,19 @@
+{
+    "api_response": {
+        "post_id": 5055,
+        "linked_post_id": 5062,
+        "post_author": "JohnDee",
+        "post_author_id": 1,
+        "conversation_transcript": "[user]: What is currently happening is that the system creates the ability for the user to click the CTA link or the unsubscribe link, and they are rendered a UI when they visit those links. The expected behavior when the user clicks those links, is that they should be brought to an actual WordPress page, not a custom UI generation. Therefore, we need a selector in the admin UI where the admin can set the location of the opt in and opt out pages. Instead of generating a custom UI, the UI for our plugin should be rendered as wordpress content filters on those designated posts. Please update the functionality so that the links go to actual wordpress pages, not just custom UIs.",
+        "post_title": "WordPress Email Opt-In / Opt-Out Management Plugin",
+        "version": 3,
+        "model": "zoo"
+    },
+    "metadata": {
+        "created_at": "2026-08-18T07:49:49+00:00",
+        "api_endpoint": "https://aiplugin.dev/wp-json/ai-plugin-dev/v1/next-build",
+        "plugin_slug": "aiplugin5055",
+        "filename": "linked_post_id_5062.json",
+        "linked_post_id": 5062
+    }
+}

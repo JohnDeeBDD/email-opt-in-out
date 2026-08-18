@@ -3,7 +3,7 @@
  * Plugin Name: WordPress Email Opt-In / Opt-Out Management Plugin
  * Plugin URI: https://aiplugin.dev/ai-plugin/TRuawh0EAq
  * Description: Records explicit per-campaign opt-in and opt-out decisions for recipients of an external email list, creating the WordPress user only when someone explicitly acts.
- * Version: 3
+ * Version: 5
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: JohnDee
@@ -17,6 +17,7 @@ namespace aiplugin5055;
 use aiplugin5055\Admin\CampaignsScreen;
 use aiplugin5055\Admin\UserProfileSection;
 use aiplugin5055\Frontend\ActionEndpoint;
+use aiplugin5055\Frontend\PageContentFilter;
 use aiplugin5055\Meta\MetaKeys;
 use aiplugin5055\Rest\CampaignsController;
 use aiplugin5055\Rest\StateController;
@@ -46,8 +47,10 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Actions/CampaignState.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Actions/ActionRecorder.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/ActionPageView.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/ActionEndpoint.php';
+require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/PageContentFilter.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/CampaignsView.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/CampaignsScreen.php';
+require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/SettingsScreen.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/UserProfileSection.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/Permissions.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/TrackingCodeController.php';
@@ -113,6 +116,20 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/StateController.php';
 	function () {
 		( new CampaignsScreen() )->handle_delete();
 	}
+);
+
+\add_action(
+	'admin_post_' . CampaignsScreen::ACTION_SAVE_SETTINGS,
+	function () {
+		( new CampaignsScreen() )->handle_save_settings();
+	}
+);
+
+/* Content filter for WordPress pages. */
+\add_filter(
+	'the_content',
+	array( PageContentFilter::class, 'filter_content' ),
+	20
 );
 
 /* Per-campaign state on the user edit screen. */

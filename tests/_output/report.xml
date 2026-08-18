@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="acceptance" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.871496">
+    <testcase name="SmokeTest" file="/var/project/tests/acceptance/SmokeTestCept.php" feature="test Acceptance suite can load the homepage" assertions="1" time="0.871496"/>
+  </testsuite>
+</testsuites>
