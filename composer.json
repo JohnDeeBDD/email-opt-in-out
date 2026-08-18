@@ -1,0 +1,53 @@
+{
+    "name": "ai-plugin-dev/plugin-builder",
+    "description": "A WordPress plugin that provides a shortcode-based form interface for users to submit text content, which automatically creates private posts and corresponding plugin directories.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Your Name"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "psr/log": "^1.1|^2.0|^3.0",
+        "nikic/php-parser": "^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AIPluginDev\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "tests/_support/"
+        }
+    },
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^6.8",
+        "codeception/codeception": "4.2.2",
+        "codeception/module-db": "^1.0",
+        "codeception/module-webdriver": "^1.0",
+        "codeception/module-asserts": "^1.2",
+        "codeception/module-cli": "^1.0",
+        "codeception/module-phpbrowser": "^1.0",
+        "codeception/module-rest": "^1.2",
+        "lucatume/wp-browser": "^3.2",
+        "guzzlehttp/guzzle": "*",
+        "phpunit/php-code-coverage": "*",
+        "phpstan/phpstan": "^1.10"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "scripts": {
+        "phpstan": "phpstan analyse",
+        "phpstan-baseline": "phpstan analyse --generate-baseline",
+        "phpstan-json": "phpstan analyse --error-format=json",
+        "phpstan-html": "php generate-html-report.php"
+    }
+}

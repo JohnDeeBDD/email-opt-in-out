@@ -1,0 +1,12 @@
+{
+    "taskId": 4,
+    "name": "Plugin V2 Scaffold Bootstrap",
+    "description": "Bootstrap the plugin to the V2 scaffold using the default template, without invoking any AI agent.",
+    "instruction": "Bootstrap the WordPress plugin to the V2 scaffold for aiplugin5055. Use the default template plugin as-is: do not expand features, do not modify template defaults, and do not send any prompt or message to an AI agent. Produce only the scaffold artifacts expected by the builder pipeline and leave the resulting plugin content equal to the default template.",
+    "mode": "code",
+    "options": {
+        "newTab": true,
+        "timeout": 180000
+    },
+    "continueOnFailure": false
+}
