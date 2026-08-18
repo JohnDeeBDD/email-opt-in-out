@@ -109,7 +109,6 @@ The plugin SHALL:
 * Allow a single user to hold independent opt-in / opt-out states for different campaigns.
 * Preserve the provenance of those actions.
 * Provide an authoritative WordPress record of explicit recipient decisions.
-* Support bulk generation of action codes/URLs suitable for Gmail mail merge.
 
 ---
 
@@ -495,7 +494,6 @@ It SHOULD additionally show, per campaign:
 * The per-campaign metadata key (`email_campaign_{CAMPAIGN_CODE}`), so an administrator can locate the user metadata.
 * Counts of recorded opt-ins and opt-outs for that campaign.
 * A convenient way to copy the campaign code.
-* A link to bulk tracking-code generation (Section 17) for that campaign.
 
 ### Update
 
@@ -607,8 +605,6 @@ tracking_code   (campaign code + encoded email address)
 opt_in_url
 opt_out_url
 ```
-
-The API SHALL also support **bulk generation**: given a campaign code and a list of email addresses, it returns a tracking code and full action URLs for each address, in a form suitable for import into a Gmail mail merge (for example CSV with `email`, `opt_in_url`, and `opt_out_url` columns).
 
 The supplied email MAY correspond to:
 
@@ -1048,11 +1044,11 @@ The external process conceptually performs:
 ```text
 Administrator creates a campaign in WordPress (Tools screen) and receives its code
       ↓
-Administrator submits recipient list to the tracking code API
+Administrator calls the tracking code API for each recipient email
       ↓
-Plugin returns email + action URL for each recipient
+Plugin returns tracking code and action URLs for that recipient
       ↓
-Export to CSV / spreadsheet
+Collect results into CSV / spreadsheet
       ↓
 Gmail mail merge builds individualized email
       ↓
@@ -1202,37 +1198,36 @@ The MVP SHALL satisfy the following:
 13. A tracking code decodes to the original email address with no database lookup.
 14. A tracking code is URL-safe and contains no plaintext email address.
 15. The administrator-only API returns the tracking code and the opt-in and opt-out URLs for a supplied email address and campaign code.
-16. Bulk generation returns action URLs per recipient in a form usable by Gmail mail merge.
-17. An explicit opt-in creates a WordPress user when none exists.
-18. An explicit opt-out creates a WordPress user when none exists.
-19. Existing users are reused instead of duplicated.
-20. An explicit opt-in records hidden opt-in metadata under the key `email_campaign_{CAMPAIGN_CODE}` for the campaign in the code.
-21. An explicit opt-out records hidden opt-out metadata under the key `email_campaign_{CAMPAIGN_CODE}` for the campaign in the code.
-22. An action on one campaign does not create, modify, or clear metadata for any other campaign.
-23. A single user can simultaneously be opted in to one campaign and opted out of another.
-24. The absence of a campaign's metadata entry is reported as no record, not as an opt-out.
-25. Action metadata records the relevant campaign code.
-26. Action metadata records an appropriate timestamp.
-27. Action metadata identifies the nature/source of the action.
-28. The system can determine why an account created through this plugin was created, and which campaign caused it.
-29. The tracking code API, the campaign management screen, and all campaign CRUD operations are restricted to administrators.
-30. Administrative write operations are nonce-protected.
-31. An action code with an unknown, deleted, or disabled campaign code cannot create or modify a user.
-32. An action code whose encoded portion does not decode to a valid email address cannot create or modify a user.
-33. Invalid codes cannot create WordPress users.
-34. Invalid codes cannot modify user metadata.
-35. Failure responses do not reveal which portion of the code was invalid or whether an address exists.
-36. Loading an action URL without confirming the action changes no state.
-37. Recipients can unsubscribe without logging into WordPress.
-38. Recipients can explicitly opt in without already having a WordPress account.
-39. No action performed through an action code logs the recipient in.
+16. An explicit opt-in creates a WordPress user when none exists.
+17. An explicit opt-out creates a WordPress user when none exists.
+18. Existing users are reused instead of duplicated.
+19. An explicit opt-in records hidden opt-in metadata under the key `email_campaign_{CAMPAIGN_CODE}` for the campaign in the code.
+20. An explicit opt-out records hidden opt-out metadata under the key `email_campaign_{CAMPAIGN_CODE}` for the campaign in the code.
+21. An action on one campaign does not create, modify, or clear metadata for any other campaign.
+22. A single user can simultaneously be opted in to one campaign and opted out of another.
+23. The absence of a campaign's metadata entry is reported as no record, not as an opt-out.
+24. Action metadata records the relevant campaign code.
+25. Action metadata records an appropriate timestamp.
+26. Action metadata identifies the nature/source of the action.
+27. The system can determine why an account created through this plugin was created, and which campaign caused it.
+28. The tracking code API, the campaign management screen, and all campaign CRUD operations are restricted to administrators.
+29. Administrative write operations are nonce-protected.
+30. An action code with an unknown, deleted, or disabled campaign code cannot create or modify a user.
+31. An action code whose encoded portion does not decode to a valid email address cannot create or modify a user.
+32. Invalid codes cannot create WordPress users.
+33. Invalid codes cannot modify user metadata.
+34. Failure responses do not reveal which portion of the code was invalid or whether an address exists.
+35. Loading an action URL without confirming the action changes no state.
+36. Recipients can unsubscribe without logging into WordPress.
+37. Recipients can explicitly opt in without already having a WordPress account.
+38. No action performed through an action code logs the recipient in.
 40. An action code cannot change a user's role, password, email address, or any field other than the opt-in/opt-out metadata of its own campaign.
-41. Users created through an action code receive a non-privileged role.
-42. Repeated opt-out operations do not create duplicate accounts.
-43. Opt-out does not delete the WordPress account.
-44. Historical opt-in information for a campaign is not silently destroyed by an opt-out.
-45. No-response/inactivity remains distinct from explicit opt-out.
-46. WordPress account existence alone is never treated as proof of opt-in.
+39. Users created through an action code receive a non-privileged role.
+40. Repeated opt-out operations do not create duplicate accounts.
+41. Opt-out does not delete the WordPress account.
+42. Historical opt-in information for a campaign is not silently destroyed by an opt-out.
+43. No-response/inactivity remains distinct from explicit opt-out.
+44. WordPress account existence alone is never treated as proof of opt-in.
 
 ---
 
