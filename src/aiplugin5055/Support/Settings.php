@@ -17,7 +17,7 @@ class Settings {
 	/** Option holding the whole settings array. */
 	const OPTION = 'aiplugin5055_settings';
 
-	/** Option holding page configuration. */
+	/** Option holding the unsubscribe page configuration. */
 	const PAGES_OPTION = 'aiplugin5055_pages';
 
 	/**
@@ -128,33 +128,26 @@ class Settings {
 	}
 
 	/**
-		* Get the page configuration (opt-in and opt-out page IDs).
+		* The WordPress page that renders the unsubscribe flow, if one is set.
 		*
-		* @return array{opt_in_page:int,opt_out_page:int}
+		* Opt-in has no page: it happens silently on any URL carrying a code.
+		*
+		* @return int Page ID, or 0 when no page is configured.
 		*/
-	public static function get_pages() {
+	public static function opt_out_page() {
 		$pages = \get_option( self::PAGES_OPTION, array() );
 
-		return array(
-			'opt_in_page'  => isset( $pages['opt_in_page'] ) ? (int) $pages['opt_in_page'] : 0,
-			'opt_out_page' => isset( $pages['opt_out_page'] ) ? (int) $pages['opt_out_page'] : 0,
-		);
+		return isset( $pages['opt_out_page'] ) ? (int) $pages['opt_out_page'] : 0;
 	}
 
 	/**
-		* Update the page configuration.
+		* Set the WordPress page that renders the unsubscribe flow.
 		*
-		* @param int $opt_in_page_id  Page ID for opt-in actions.
-		* @param int $opt_out_page_id Page ID for opt-out actions.
+		* @param int $opt_out_page_id Page ID, or 0 for none.
 		* @return bool
 		*/
-	public static function update_pages( $opt_in_page_id, $opt_out_page_id ) {
-		$pages = array(
-			'opt_in_page'  => (int) $opt_in_page_id,
-			'opt_out_page' => (int) $opt_out_page_id,
-		);
-
-		return \update_option( self::PAGES_OPTION, $pages );
+	public static function update_opt_out_page( $opt_out_page_id ) {
+		return \update_option( self::PAGES_OPTION, array( 'opt_out_page' => (int) $opt_out_page_id ) );
 	}
 
 	/**

@@ -18,6 +18,7 @@ use aiplugin5055\Admin\CampaignsScreen;
 use aiplugin5055\Admin\UserProfileSection;
 use aiplugin5055\Frontend\ActionEndpoint;
 use aiplugin5055\Frontend\PageContentFilter;
+use aiplugin5055\Frontend\SilentOptIn;
 use aiplugin5055\Meta\MetaKeys;
 use aiplugin5055\Rest\CampaignsController;
 use aiplugin5055\Rest\StateController;
@@ -47,10 +48,10 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Actions/CampaignState.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Actions/ActionRecorder.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/ActionPageView.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/ActionEndpoint.php';
+require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/SilentOptIn.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Frontend/PageContentFilter.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/CampaignsView.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/CampaignsScreen.php';
-require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/SettingsScreen.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Admin/UserProfileSection.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/Permissions.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/TrackingCodeController.php';
@@ -72,7 +73,7 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/StateController.php';
 
 \register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
 
-/* Public opt-in and opt-out endpoints. */
+/* Public opt-out endpoint. */
 \add_action( 'init', array( ActionEndpoint::class, 'register_rewrite_rules' ) );
 \add_filter( 'query_vars', array( ActionEndpoint::class, 'register_query_vars' ) );
 \add_action(
@@ -81,6 +82,20 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/StateController.php';
 		( new ActionEndpoint() )->handle();
 	},
 	0 // Ahead of redirect_canonical, which would otherwise rewrite these URLs.
+);
+
+/*
+ * Silent opt-in. Any front-end URL carrying an action code records the opt-in
+ * for the encoded address; the request itself is left alone, so the visitor
+ * sees only the page they asked for. Runs after the unsubscribe endpoint,
+ * which exits before this on its own requests.
+ */
+\add_action(
+	'template_redirect',
+	function () {
+		( new SilentOptIn() )->handle();
+	},
+	1
 );
 
 /*
@@ -125,7 +140,7 @@ require_once $aiplugin5055_path . 'src/aiplugin5055/Rest/StateController.php';
 	}
 );
 
-/* Content filter for WordPress pages. */
+/* Content filter for the configured unsubscribe page. */
 \add_filter(
 	'the_content',
 	array( PageContentFilter::class, 'filter_content' ),
@@ -152,7 +167,7 @@ foreach ( array( 'show_user_profile', 'edit_user_profile' ) as $aiplugin5055_pro
 	}
 );
 
-/* Frontend assets: only on the public action pages. */
+/* Frontend assets: only on the public unsubscribe page. */
 \add_action(
 	'wp_enqueue_scripts',
 	function () {
