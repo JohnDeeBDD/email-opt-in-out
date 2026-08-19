@@ -10,6 +10,9 @@
 		{
 			"name": "WordPress Admin",
 			"path": "../../../wp-admin"
+		},
+		{
+			"path": "../../../ai-plugin-dev-system-actions"
 		}
 	],
 	"settings": {
