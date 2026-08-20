@@ -19,20 +19,20 @@ structured per [`docs/wordpress-plugin-architecture-guide.md`](docs/wordpress-pl
 
 ```
 aiplugin5055.php                 Main plugin file: requires and hook wiring only
-library/                         The shared action-code library — plain PHP, no
-│                                WordPress. The one implementation of how a
-│                                tracking code is built, parsed and linked, used
-│                                by this plugin and loaded directly from disk by
-│                                the Gmail Campaign Manager. See library/README.md
-├── autoload.php                 Entry point for callers outside WordPress
-├── selftest.php                 `php library/selftest.php` — vectors and checks
-└── src/
-    ├── ActionCode.php           build() / parse() / check value
-    ├── ActionUrls.php           Appending the code and the action parameter
-    ├── CampaignCode.php         Shape of a five-character campaign code
-    ├── EmailCodec.php           Reversible Base32-style email encoding
-    └── SiteSettings.php         Alphabet, secret and check-value length
 src/
+├── library/                     The shared action-code library — plain PHP, no
+│   │                            WordPress. The one implementation of how a
+│   │                            tracking code is built, parsed and linked, used
+│   │                            by this plugin and loaded directly from disk by
+│   │                            the Gmail Campaign Manager. See its README.md
+│   ├── autoload.php             Entry point for callers outside WordPress
+│   ├── selftest.php             `php src/library/selftest.php` — vectors and checks
+│   └── src/
+│       ├── ActionCode.php       build() / parse() / check value
+│       ├── ActionUrls.php       Appending the code and the action parameter
+│       ├── CampaignCode.php     Shape of a five-character campaign code
+│       ├── EmailCodec.php       Reversible Base32-style email encoding
+│       └── SiteSettings.php     Alphabet, secret and check-value length
 ├── aiplugin5055/
 │   ├── Actions/
 │   │   ├── ActionRecorder.php   Records an explicit opt-in / opt-out
@@ -42,11 +42,11 @@ src/
 │   │   ├── CampaignsView.php    Tools screen markup
 │   │   └── UserProfileSection.php  Per-user state on the user edit screen
 │   ├── Campaigns/
-│   │   ├── CampaignCodeGenerator.php  Unique code generation (shape: library/)
+│   │   ├── CampaignCodeGenerator.php  Unique code generation (shape: src/library/)
 │   │   └── CampaignRepository.php     Campaign records (options, not a table)
 │   ├── Codec/
 │   │   ├── ActionCode.php       WordPress half of the code: settings + is_email
-│   │   └── EmailCodec.php       Delegates to library/src/EmailCodec.php
+│   │   └── EmailCodec.php       Delegates to src/library/src/EmailCodec.php
 │   ├── Frontend/
 │   │   ├── ActionEndpoint.php   Public unsubscribe request handling
 │   │   ├── ActionPageView.php   Unsubscribe page markup

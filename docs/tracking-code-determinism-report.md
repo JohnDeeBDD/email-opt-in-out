@@ -181,11 +181,11 @@ inboxes — is the risk this addendum removes.
   (`Settings::site_settings()`), what counts as an address (`is_email()`), and
   where the links point (`Urls::opt_out_endpoint()`).
 * The campaign manager **deletes its port** and loads
-  `/var/www/html/wp-content/plugins/aiplugin5055/library/autoload.php` directly.
+  `/var/www/html/wp-content/plugins/aiplugin5055/src/library/autoload.php` directly.
   A missing or too-old library is a fatal error when its configuration loads,
   before a campaign can be opened.
-* Section 3's table is now a committed regression test: `library/selftest.php`,
-  runnable on the server as `php library/selftest.php`, and under Codeception as
+* Section 3's table is now a committed regression test: `src/library/selftest.php`,
+  runnable on the server as `php src/library/selftest.php`, and under Codeception as
   `tests/phpunit/LibraryCest.php`. **This closes C3.** The campaign manager pins
   the same vectors from the other side.
 

@@ -564,7 +564,7 @@ recognised as an unsubscribe request when the flow is served from a configured
 page or from a plain query string — and a link that reaches the site with no
 action named is an ordinary page view, which is silently an opt-in. Both this
 plugin and any external mail merge SHALL build these links through
-`library/src/ActionUrls.php`.
+`src/library/src/ActionUrls.php`.
 
 The recipient's plaintext email address MUST NOT appear directly in the URL:
 

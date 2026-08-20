@@ -5,9 +5,9 @@
  *
  * These checks need no WordPress and no database: the library is plain PHP, so
  * that the Gmail Campaign Manager can call it from outside WordPress and build
- * codes this plugin will decode. The check list lives in library/selftest.php
+ * codes this plugin will decode. The check list lives in src/library/selftest.php
  * so the same assertions can be run on the server with `php
- * library/selftest.php`, without a test framework.
+ * src/library/selftest.php`, without a test framework.
  *
  * If any of these fail, links already in recipients' inboxes have stopped
  * decoding. There is no migration for that.
@@ -21,7 +21,7 @@ class LibraryCest
 
     public function _before(): void
     {
-        require_once __DIR__ . '/../../library/selftest.php';
+        require_once __DIR__ . '/../../src/library/selftest.php';
 
         $this->results = aiplugin5055_library_selftest();
     }

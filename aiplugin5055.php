@@ -42,7 +42,7 @@ $aiplugin5055_path = \plugin_dir_path( __FILE__ );
  * this plugin decodes cannot come from two implementations that drift apart.
  * See library/README.md.
  */
-require_once $aiplugin5055_path . 'library/autoload.php';
+require_once $aiplugin5055_path . 'src/library/autoload.php';
 
 require_once $aiplugin5055_path . 'src/aiplugin5055/Support/Settings.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Support/Urls.php';

@@ -43,7 +43,7 @@ The code is written for PHP 7.4 (the plugin's floor), and runs unchanged on 8.x.
 The plugin is installed at `/var/www/html/wp-content/plugins/aiplugin5055`, so:
 
 ```php
-require_once '/var/www/html/wp-content/plugins/aiplugin5055/library/autoload.php';
+require_once '/var/www/html/wp-content/plugins/aiplugin5055/src/library/autoload.php';
 
 use aiplugin5055\Library\ActionCode;
 use aiplugin5055\Library\ActionUrls;
@@ -71,7 +71,7 @@ need to refuse a plugin older than the contract you were built against.
 On the server, with no test framework and no WordPress:
 
 ```console
-$ php /var/www/html/wp-content/plugins/aiplugin5055/library/selftest.php
+$ php /var/www/html/wp-content/plugins/aiplugin5055/src/library/selftest.php
 ...
 57 checks, 0 failed (library 1.0.0)
 ```
@@ -84,7 +84,7 @@ It does **not** tell you that a particular site's alphabet and secret were
 copied correctly into the campaign manager's configuration — only sending
 yourself a code and following both links on the live site does that.
 
-Nothing else in the plugin may be loaded this way: `library/` is the only part
+Nothing else in the plugin may be loaded this way: `src/library/` is the only part
 that is safe to run outside WordPress, and the only part with a stable shape
 for outside callers.
 
@@ -95,9 +95,9 @@ Treat every change as a change to both systems at once.
 * A change that alters the bytes `ActionCode::build()` returns for inputs that
   already work invalidates every mailed link. There is no migration for that;
   it is a thing you do not do.
-* `library/README.md`, `docs/tracking-code-determinism-report.md` and the
+* `src/library/README.md`, `docs/tracking-code-determinism-report.md` and the
   campaign manager's PRD Section 11.3 all describe this construction. Keep them
   honest.
-* The tests in `tests/phpunit/LibraryCest.php` and `library/selftest.php` pin the construction against
+* The tests in `tests/phpunit/LibraryCest.php` and `src/library/selftest.php` pin the construction against
   fixed vectors, and the campaign manager's `tests/Unit/Tracking/` pins the
   same vectors from the other side. Both suites must stay green.

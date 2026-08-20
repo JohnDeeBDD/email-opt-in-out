@@ -4,7 +4,7 @@
  *
  * Runnable two ways, with the same checks either way:
  *
- *     php library/selftest.php            # on the server, no test framework
+ *     php src/library/selftest.php            # on the server, no test framework
  *     bin/codecept run phpunit            # tests/phpunit/LibraryCest.php
  *
  * The vectors below were produced by `ActionCode::build()` before the plugin

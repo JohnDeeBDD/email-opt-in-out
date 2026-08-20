@@ -17,7 +17,7 @@ namespace aiplugin5055\Support;
 use aiplugin5055\Library\ActionUrls;
 use aiplugin5055\Support\Settings;
 
-require_once __DIR__ . '/../../../library/autoload.php';
+require_once __DIR__ . '/../../library/autoload.php';
 
 class Urls {
 

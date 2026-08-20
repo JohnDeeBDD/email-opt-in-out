@@ -15,7 +15,7 @@ namespace aiplugin5055\Campaigns;
 
 use aiplugin5055\Library\CampaignCode;
 
-require_once __DIR__ . '/../../../library/autoload.php';
+require_once __DIR__ . '/../../library/autoload.php';
 
 class CampaignCodeGenerator {
 

@@ -18,7 +18,7 @@ namespace aiplugin5055\Codec;
 use aiplugin5055\Library\ActionCode as Library;
 use aiplugin5055\Support\Settings;
 
-require_once __DIR__ . '/../../../library/autoload.php';
+require_once __DIR__ . '/../../library/autoload.php';
 
 class ActionCode {
 
