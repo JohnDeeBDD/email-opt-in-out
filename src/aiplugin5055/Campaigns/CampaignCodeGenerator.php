@@ -2,17 +2,25 @@
 /**
  * Generates the five-character campaign codes (PRD Section 13).
  *
+ * The shape of a code, and the alphabet it is drawn from, live in
+ * `aiplugin5055\Library\CampaignCode` — the campaign manager validates the code
+ * an operator pasted into a campaign file against the same definition. What
+ * stays here is the part that needs the site: not reissuing a code that has
+ * ever been used.
+ *
  * @package aiplugin5055
  */
 
 namespace aiplugin5055\Campaigns;
 
-use aiplugin5055\Support\Settings;
+use aiplugin5055\Library\CampaignCode;
+
+require_once __DIR__ . '/../../../library/autoload.php';
 
 class CampaignCodeGenerator {
 
 	/** Campaign codes are exactly five characters long. */
-	const LENGTH = 5;
+	const LENGTH = CampaignCode::LENGTH;
 
 	/** Attempts before giving up on finding an unused code. */
 	const MAX_ATTEMPTS = 50;
@@ -45,15 +53,7 @@ class CampaignCodeGenerator {
 	 * @return string
 	 */
 	public static function random_code() {
-		$alphabet = Settings::BASE_ALPHABET;
-		$maximum  = strlen( $alphabet ) - 1;
-		$code     = '';
-
-		for ( $i = 0; $i < self::LENGTH; $i++ ) {
-			$code .= $alphabet[ random_int( 0, $maximum ) ];
-		}
-
-		return $code;
+		return CampaignCode::random();
 	}
 
 	/**
@@ -63,9 +63,6 @@ class CampaignCodeGenerator {
 	 * @return bool
 	 */
 	public static function is_well_formed( $code ) {
-		return (bool) preg_match(
-			'/^[' . preg_quote( Settings::BASE_ALPHABET, '/' ) . ']{' . self::LENGTH . '}$/',
-			(string) $code
-		);
+		return CampaignCode::is_well_formed( $code );
 	}
 }

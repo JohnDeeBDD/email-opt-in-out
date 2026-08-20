@@ -554,8 +554,17 @@ The action code appears in the email URL as a single query parameter or path seg
 
 ```text
 https://example.com/summer-launch/?c=A7K2QNBSWY3DPEBLW64TMMQ      ← CTA, opts in silently
-https://example.com/email-unsubscribe/?c=A7K2QNBSWY3DPEBLW64TMMQ  ← unsubscribe, asks first
+https://example.com/email-unsubscribe/?aiplugin5055_action=opt_out&c=A7K2QNBSWY3DPEBLW64TMMQ
+                                                                  ← unsubscribe, asks first
 ```
+
+An unsubscribe link SHALL name the action explicitly. The rewrite rule for the
+unsubscribe slug supplies the same value, but a link that relies on it is not
+recognised as an unsubscribe request when the flow is served from a configured
+page or from a plain query string — and a link that reaches the site with no
+action named is an ordinary page view, which is silently an opt-in. Both this
+plugin and any external mail merge SHALL build these links through
+`library/src/ActionUrls.php`.
 
 The recipient's plaintext email address MUST NOT appear directly in the URL:
 

@@ -12,6 +12,10 @@
 
 namespace aiplugin5055\Support;
 
+use aiplugin5055\Library\SiteSettings;
+
+require_once __DIR__ . '/../../../library/autoload.php';
+
 class Settings {
 
 	/** Option holding the whole settings array. */
@@ -22,13 +26,15 @@ class Settings {
 
 	/**
 	 * Unambiguous, URL-safe, single-case alphabet (PRD Section 13 / 16).
-	 * 32 characters: A-Z without I and O, plus 2-9. No characters that a
-	 * reader can confuse (O/0, I/1) and none that require percent-encoding.
+	 *
+	 * 32 characters: A-Z without I and O, plus 2-9. Defined by the shared
+	 * library, which is where the campaign manager reads it from too; this is
+	 * an alias so that existing call sites keep working.
 	 */
-	const BASE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+	const BASE_ALPHABET = SiteSettings::BASE_ALPHABET;
 
 	/** Length of the HMAC check value appended to an action code. */
-	const CHECK_VALUE_LENGTH = 3;
+	const CHECK_VALUE_LENGTH = SiteSettings::DEFAULT_CHECK_VALUE_LENGTH;
 
 	/** @var array|null Runtime cache. */
 	private static $cache = null;
@@ -88,7 +94,26 @@ class Settings {
 	public static function check_value_length() {
 		$length = (int) \apply_filters( 'aiplugin5055_check_value_length', self::CHECK_VALUE_LENGTH );
 
-		return max( 0, min( 8, $length ) );
+		return max( 0, min( SiteSettings::MAX_CHECK_VALUE_LENGTH, $length ) );
+	}
+
+	/**
+	 * The three values every action code depends on, as the shared library
+	 * wants them.
+	 *
+	 * This is the seam between WordPress and the code-building functions: the
+	 * plugin reads the alphabet and secret from the options table, the campaign
+	 * manager reads the same two values from its own configuration file, and
+	 * from here on both call exactly the same code.
+	 *
+	 * Built fresh on each call rather than cached, because the check-value
+	 * length is a runtime filter and a stale copy of it would build codes the
+	 * site then refuses.
+	 *
+	 * @return SiteSettings
+	 */
+	public static function site_settings() {
+		return new SiteSettings( self::alphabet(), self::secret(), self::check_value_length() );
 	}
 
 	/**
@@ -186,9 +211,7 @@ class Settings {
 			return false;
 		}
 
-		$alphabet = (string) $settings['alphabet'];
-
-		return strlen( $alphabet ) === 32 && count( array_unique( str_split( $alphabet ) ) ) === 32;
+		return SiteSettings::is_usable_alphabet( (string) $settings['alphabet'] );
 	}
 
 	/**
