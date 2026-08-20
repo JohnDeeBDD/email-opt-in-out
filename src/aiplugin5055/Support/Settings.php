@@ -14,7 +14,7 @@ namespace aiplugin5055\Support;
 
 use aiplugin5055\Library\SiteSettings;
 
-require_once __DIR__ . '/../../../library/autoload.php';
+require_once __DIR__ . '/../../library/autoload.php';
 
 class Settings {
 

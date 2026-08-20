@@ -10,7 +10,7 @@
  *
  * From another application:
  *
- *     require_once '/var/www/html/wp-content/plugins/aiplugin5055/library/autoload.php';
+ *     require_once '/var/www/html/wp-content/plugins/aiplugin5055/src/library/autoload.php';
  *
  *     $settings = new aiplugin5055\Library\SiteSettings( $alphabet, $secret, 3 );
  *     $code     = aiplugin5055\Library\ActionCode::build( 'A7K2Q', 'john@example.com', $settings );

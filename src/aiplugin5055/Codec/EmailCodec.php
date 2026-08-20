@@ -14,7 +14,7 @@ namespace aiplugin5055\Codec;
 
 use aiplugin5055\Library\EmailCodec as Library;
 
-require_once __DIR__ . '/../../../library/autoload.php';
+require_once __DIR__ . '/../../library/autoload.php';
 
 class EmailCodec {
 
