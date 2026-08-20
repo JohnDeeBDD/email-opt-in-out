@@ -156,4 +156,62 @@ beyond `is_email()` — would lock in section 3's table cheaply.
 | Case / whitespace insensitive | Yes, both for the email and the campaign code |
 | Reversible without a database lookup | Yes |
 | Duplicate implementation in JS that could drift | None |
-| Open items | C2 (filterable check length), C3 (no regression test) |
+| Open items | C2 (filterable check length) — see the addendum |
+
+---
+
+# Addendum, 2026-08-20: one implementation, in `library/`
+
+The report above was written when this repository held the only implementation.
+It did not: the Gmail Campaign Manager (`email-agent`) carried a hand-written
+PHP port of `ActionCode::build()` and `EmailCodec::encode()` so that it could
+build codes offline. Two implementations of a function whose disagreement
+cannot be corrected after the fact — the links are already in the recipients'
+inboxes — is the risk this addendum removes.
+
+## What changed
+
+* The construction moved to **`library/`**: `SiteSettings`, `EmailCodec`,
+  `ActionCode`, `CampaignCode`, `ActionUrls`. Plain PHP, no WordPress, no
+  filesystem, no clock, no randomness except `CampaignCode::random()`.
+* `Codec\ActionCode`, `Codec\EmailCodec`, `Support\Urls`,
+  `Campaigns\CampaignCodeGenerator` and the two constants on `Support\Settings`
+  are now delegates. They keep their signatures; the site's behaviour is
+  unchanged. What WordPress still owns is where the settings come from
+  (`Settings::site_settings()`), what counts as an address (`is_email()`), and
+  where the links point (`Urls::opt_out_endpoint()`).
+* The campaign manager **deletes its port** and loads
+  `/var/www/html/wp-content/plugins/aiplugin5055/library/autoload.php` directly.
+  A missing or too-old library is a fatal error when its configuration loads,
+  before a campaign can be opened.
+* Section 3's table is now a committed regression test: `library/selftest.php`,
+  runnable on the server as `php library/selftest.php`, and under Codeception as
+  `tests/phpunit/LibraryCest.php`. **This closes C3.** The campaign manager pins
+  the same vectors from the other side.
+
+## A bug the duplication was hiding
+
+The campaign manager built unsubscribe links as `<opt_out_path>?c=CODE`, while
+`Support\Urls` builds them with `aiplugin5055_action=opt_out` as well.
+`ActionEndpoint::current_action()` returns nothing without that parameter, so
+the link only worked on a site using the `/email-unsubscribe/` rewrite rule,
+which supplies the value itself. On a site serving the flow from a configured
+page — the configuration the Tools screen encourages — every unsubscribe link
+in a campaign landed on an ordinary page view. Worse, on any other path
+`SilentOptIn` would have treated the visit as an **opt-in**: a recipient
+clicking "unsubscribe" would have been recorded as opting in.
+
+Both sides now build the link through `ActionUrls::opt_out_url()`, which always
+names the action. WordPress reads a registered public query var from `$_GET`
+ahead of the rewritten query and both give `opt_out`, so the slug endpoint is
+unaffected; the page and plain-query configurations start working.
+
+## C2 stands
+
+`Settings::check_value_length()` is still a runtime filter, and changing it
+still invalidates every issued code. The library now makes the consequence
+visible from both ends — the length is part of `SiteSettings`, and the campaign
+manager has to be configured with the same number — but nothing yet stops a
+filter in a theme from changing it. Persisting the effective length into
+`aiplugin5055_settings` at creation time remains the fix, and remains your
+call.

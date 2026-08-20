@@ -34,6 +34,16 @@ const AIPLUGIN5055_ASSET_VERSION = '1.0.0';
 
 $aiplugin5055_path = \plugin_dir_path( __FILE__ );
 
+/*
+ * The shared action-code library first. It is plain PHP with no WordPress
+ * dependency, and it is the single definition of how a tracking code is built,
+ * parsed and turned into a link. The Gmail Campaign Manager on this machine
+ * loads this same directory directly, so that the codes it mails and the codes
+ * this plugin decodes cannot come from two implementations that drift apart.
+ * See library/README.md.
+ */
+require_once $aiplugin5055_path . 'library/autoload.php';
+
 require_once $aiplugin5055_path . 'src/aiplugin5055/Support/Settings.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Support/Urls.php';
 require_once $aiplugin5055_path . 'src/aiplugin5055/Support/RateLimiter.php';
