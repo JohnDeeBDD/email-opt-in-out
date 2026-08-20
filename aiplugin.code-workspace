@@ -13,6 +13,9 @@
 		},
 		{
 			"path": "../../../ai-plugin-dev-system-actions"
+		},
+		{
+			"path": "../../../email-agent"
 		}
 	],
 	"settings": {
