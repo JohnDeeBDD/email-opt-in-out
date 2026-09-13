@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: WordPress Email Opt-In / Opt-Out Management Plugin
+ * Plugin Name: Email Opt-In / Opt-Out Management Plugin
  * Plugin URI: https://aiplugin.dev/ai-plugin/TRuawh0EAq
  * Description: Records explicit per-campaign opt-in and opt-out decisions for recipients of an external email list, creating the WordPress user only when someone explicitly acts.
- * Version: 11
+ * Version: 12
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: JohnDee
