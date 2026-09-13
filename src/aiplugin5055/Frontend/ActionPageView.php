@@ -35,7 +35,7 @@ class ActionPageView {
 
 		self::layout(
 			$title,
-			function () use ( $action, $campaign, $email, $action_code, $title, $intro, $button ) {
+			function () use ( $action, $email, $action_code, $title, $intro, $button ) {
 				?>
 				<h1 class="aiplugin5055-title"><?php echo \esc_html( $title ); ?></h1>
 				<p class="aiplugin5055-intro"><?php echo \esc_html( $intro ); ?></p>
@@ -43,8 +43,6 @@ class ActionPageView {
 				<dl class="aiplugin5055-summary">
 					<dt><?php \esc_html_e( 'Email address', 'aiplugin5055' ); ?></dt>
 					<dd><?php echo \esc_html( $email ); ?></dd>
-					<dt><?php \esc_html_e( 'Campaign', 'aiplugin5055' ); ?></dt>
-					<dd><?php echo \esc_html( $campaign['name'] ); ?></dd>
 				</dl>
 
 				<p class="aiplugin5055-scope">
@@ -78,7 +76,7 @@ class ActionPageView {
 
 		self::layout(
 			$title,
-			function () use ( $campaign, $email, $title, $message ) {
+			function () use ( $email, $title, $message ) {
 				?>
 				<h1 class="aiplugin5055-title"><?php echo \esc_html( $title ); ?></h1>
 				<p class="aiplugin5055-intro"><?php echo \esc_html( $message ); ?></p>
@@ -86,8 +84,6 @@ class ActionPageView {
 				<dl class="aiplugin5055-summary">
 					<dt><?php \esc_html_e( 'Email address', 'aiplugin5055' ); ?></dt>
 					<dd><?php echo \esc_html( $email ); ?></dd>
-					<dt><?php \esc_html_e( 'Campaign', 'aiplugin5055' ); ?></dt>
-					<dd><?php echo \esc_html( $campaign['name'] ); ?></dd>
 				</dl>
 
 				<p class="aiplugin5055-scope">
@@ -181,8 +177,6 @@ class ActionPageView {
 			<dl class="aiplugin5055-summary">
 				<dt><?php \esc_html_e( 'Email address', 'aiplugin5055' ); ?></dt>
 				<dd><?php echo \esc_html( $email ); ?></dd>
-				<dt><?php \esc_html_e( 'Campaign', 'aiplugin5055' ); ?></dt>
-				<dd><?php echo \esc_html( $campaign['name'] ); ?></dd>
 			</dl>
 
 			<p class="aiplugin5055-scope">
@@ -221,8 +215,6 @@ class ActionPageView {
 			<dl class="aiplugin5055-summary">
 				<dt><?php \esc_html_e( 'Email address', 'aiplugin5055' ); ?></dt>
 				<dd><?php echo \esc_html( $email ); ?></dd>
-				<dt><?php \esc_html_e( 'Campaign', 'aiplugin5055' ); ?></dt>
-				<dd><?php echo \esc_html( $campaign['name'] ); ?></dd>
 			</dl>
 
 			<p class="aiplugin5055-scope">
