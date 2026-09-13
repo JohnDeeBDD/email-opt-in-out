@@ -16,3 +16,5 @@ docker compose exec wordpress bash -c "cd /var/project && bash .devenv/start-chr
 make shell
  - then -
 cd /var/www/html/wp-content/plugins/aiplugin5055 && .devenv/start-chromedriver.sh && bin/codecept run acceptance CenteredItemsCepts -vvv --html
+
+php /var/www/html/ai-plugin-dev-system-actions/src/doMakeProd.php --config=/var/www/html/ai-plugin-dev-cli/ai-plugin-dev-cli-config.json --version=9

@@ -1,0 +1,19 @@
+{
+    "api_response": {
+        "post_id": 5055,
+        "linked_post_id": 5085,
+        "post_author": "JohnDee",
+        "post_author_id": 1,
+        "conversation_transcript": "[user]: One of the features of the plugin is that it creates new users when a valid code is registered. The feature is enhanced by the fact that we use a drop down selector in the admin settings page to select the user role for the new users. The issue is that in the UI, I only see a few user roles, not all the available user roles. The drop down selector should show all available user roles.",
+        "post_title": "Email Opt-In / Opt-Out Management Plugin",
+        "version": 8,
+        "model": "zoo"
+    },
+    "metadata": {
+        "created_at": "2026-08-21T15:54:56+00:00",
+        "api_endpoint": "https://aiplugin.dev/wp-json/ai-plugin-dev/v1/next-build",
+        "plugin_slug": "aiplugin5055",
+        "filename": "linked_post_id_5085.json",
+        "linked_post_id": 5085
+    }
+}

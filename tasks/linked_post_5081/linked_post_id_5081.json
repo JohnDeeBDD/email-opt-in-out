@@ -1,0 +1,19 @@
+{
+    "api_response": {
+        "post_id": 5055,
+        "linked_post_id": 5081,
+        "post_author": "JohnDee",
+        "post_author_id": 1,
+        "conversation_transcript": "[user]: This plugin has a feature where it creates new users when an email is coded properly and visits the website. We need to add some functionality. I want a drop down on the settings page where an admin can set the user role for these new users. Currently they are being assigned \"subscriber\", but a I want a drop down with the registered user roles.",
+        "post_title": "Email Opt-In / Opt-Out Management Plugin",
+        "version": 6,
+        "model": "zoo"
+    },
+    "metadata": {
+        "created_at": "2026-08-21T15:24:22+00:00",
+        "api_endpoint": "https://aiplugin.dev/wp-json/ai-plugin-dev/v1/next-build",
+        "plugin_slug": "aiplugin5055",
+        "filename": "linked_post_id_5081.json",
+        "linked_post_id": 5081
+    }
+}

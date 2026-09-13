@@ -1,0 +1,19 @@
+{
+    "api_response": {
+        "post_id": 5055,
+        "linked_post_id": 5172,
+        "post_author": "JohnDee",
+        "post_author_id": 1,
+        "conversation_transcript": "[user]: One of the features of the plugin is that it creates users when a link is clicked. The user role is determined be a setting in the plugin settings screen. The issue is that the drop down is only rendering a few user roles, and not all user roles. We want the ability of the admin to set this user role to any role, and not have it filtered. Please adjust the drop down so that the plugin can assign any possible user role to the created user.",
+        "post_title": "Email Opt-In / Opt-Out Management Plugin",
+        "version": 9,
+        "model": "zoo"
+    },
+    "metadata": {
+        "created_at": "2026-08-25T23:32:55+00:00",
+        "api_endpoint": "https://aiplugin.dev/wp-json/ai-plugin-dev/v1/next-build",
+        "plugin_slug": "aiplugin5055",
+        "filename": "linked_post_id_5172.json",
+        "linked_post_id": 5172
+    }
+}

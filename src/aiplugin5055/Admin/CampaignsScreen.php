@@ -174,7 +174,7 @@ class CampaignsScreen {
 	}
 
 	/**
-	 * Handle settings save for the unsubscribe page.
+	 * Handle settings save for the unsubscribe page and new user role.
 	 *
 	 * @return void
 	 */
@@ -183,8 +183,13 @@ class CampaignsScreen {
 		\check_admin_referer( self::ACTION_SAVE_SETTINGS );
 
 		$opt_out_page = isset( $_POST['opt_out_page'] ) ? (int) $_POST['opt_out_page'] : 0;
+		$new_user_role = isset( $_POST['new_user_role'] ) ? \sanitize_key( \wp_unslash( $_POST['new_user_role'] ) ) : '';
 
 		Settings::update_opt_out_page( $opt_out_page );
+
+		if ( '' !== $new_user_role ) {
+			Settings::update_new_user_role( $new_user_role );
+		}
 
 		$this->redirect_back( array( 'aiplugin5055_notice' => 'settings_saved' ) );
 	}

@@ -436,13 +436,14 @@ class CampaignsView {
 	 */
 	private static function render_settings() {
 		$opt_out_page = Settings::opt_out_page();
+		$new_user_role = Settings::new_user_role();
 		?>
 		<hr>
 
 		<h2><?php \esc_html_e( 'Settings', 'aiplugin5055' ); ?></h2>
 
 		<p class="description">
-			<?php \esc_html_e( 'Configure the WordPress page where the unsubscribe form will be displayed.', 'aiplugin5055' ); ?>
+			<?php \esc_html_e( 'Configure the WordPress page where the unsubscribe form will be displayed and the default role for new users.', 'aiplugin5055' ); ?>
 		</p>
 
 		<form method="post" action="<?php echo \esc_url( \admin_url( 'admin-post.php' ) ); ?>">
@@ -471,6 +472,30 @@ class CampaignsView {
 							?>
 							<p class="description">
 								<?php \esc_html_e( 'Select the WordPress page where users will be directed when they click unsubscribe links. The plugin will display the unsubscribe confirmation form on this page.', 'aiplugin5055' ); ?>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<label for="aiplugin5055_new_user_role">
+								<?php \esc_html_e( 'New User Role', 'aiplugin5055' ); ?>
+							</label>
+						</th>
+						<td>
+							<select name="new_user_role" id="aiplugin5055_new_user_role">
+								<?php
+								$all_roles = \wp_roles()->roles;
+								foreach ( $all_roles as $role_slug => $role_info ) {
+									?>
+									<option value="<?php echo \esc_attr( $role_slug ); ?>" <?php \selected( $new_user_role, $role_slug ); ?>>
+										<?php echo \esc_html( \translate_user_role( $role_info['name'] ) ); ?>
+									</option>
+									<?php
+								}
+								?>
+							</select>
+							<p class="description">
+								<?php \esc_html_e( 'Select the role that will be assigned to new users created when they visit the site with a properly coded email.', 'aiplugin5055' ); ?>
 							</p>
 						</td>
 					</tr>

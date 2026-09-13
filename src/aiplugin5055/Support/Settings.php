@@ -119,26 +119,33 @@ class Settings {
 	/**
 	 * Role assigned to users created by an explicit opt-in or opt-out.
 	 *
-	 * Guarded so that a misconfiguration cannot hand out a privileged role.
-	 *
 	 * @return string
 	 */
 	public static function new_user_role() {
-		$role = \apply_filters( 'aiplugin5055_new_user_role', \get_option( 'default_role', 'subscriber' ) );
+		$role = \apply_filters( 'aiplugin5055_new_user_role', \get_option( 'aiplugin5055_new_user_role', 'subscriber' ) );
 		$role = \is_string( $role ) ? \sanitize_key( $role ) : '';
 
 		if ( '' === $role || ! \get_role( $role ) ) {
 			$role = 'subscriber';
 		}
 
-		$capabilities = \get_role( $role );
+		return $role;
+	}
 
-		// Never let an explicit action mint a privileged account (PRD Section 32).
-		if ( $capabilities && ( ! empty( $capabilities->capabilities['edit_posts'] ) || ! empty( $capabilities->capabilities['manage_options'] ) ) ) {
-			$role = 'subscriber';
+	/**
+	 * Update the role assigned to new users.
+	 *
+	 * @param string $role Role slug.
+	 * @return bool
+	 */
+	public static function update_new_user_role( $role ) {
+		$role = \is_string( $role ) ? \sanitize_key( $role ) : '';
+
+		if ( '' === $role || ! \get_role( $role ) ) {
+			return false;
 		}
 
-		return $role;
+		return \update_option( 'aiplugin5055_new_user_role', $role );
 	}
 
 	/**

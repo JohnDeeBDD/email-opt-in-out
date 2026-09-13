@@ -1,0 +1,25 @@
+{
+    "protocol_version": 1,
+    "protocol_minor": 3,
+    "state": "abandoned",
+    "task_id": "1",
+    "run_id": "5055-20260821152422",
+    "producer_agent": "vscode_zoo",
+    "consumer": null,
+    "consumer_id": null,
+    "capabilities_required": [
+        "supports_patch_apply",
+        "supports_shell_exec",
+        "supports_multistep"
+    ],
+    "created_at": "2026-08-21T15:24:22+00:00",
+    "updated_at": "2026-08-21T15:26:22+00:00",
+    "heartbeat_at": null,
+    "expires_at": "2026-08-21T15:34:22+00:00",
+    "result": {
+        "status": "error",
+        "message": "no consumer claimed the task within 120s"
+    },
+    "collected_at": "2026-08-21T15:26:24+00:00",
+    "collected_by": "vscode_zoo"
+}

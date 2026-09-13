@@ -1,0 +1,27 @@
+I've successfully implemented the user role dropdown feature for the WordPress plugin. Here's what was done:
+
+## Changes Made:
+
+### 1. Updated [`Settings.php`](src/aiplugin5055/Support/Settings.php)
+- Modified [`new_user_role()`](src/aiplugin5055/Support/Settings.php:126) to read from a dedicated option `aiplugin5055_new_user_role` instead of the WordPress default role
+- Added [`update_new_user_role()`](src/aiplugin5055/Support/Settings.php:145) method to save the selected role with security validation to prevent privileged roles from being assigned
+
+### 2. Updated [`CampaignsView.php`](src/aiplugin5055/Admin/CampaignsView.php)
+- Added a "New User Role" dropdown in the [`render_settings()`](src/aiplugin5055/Admin/CampaignsView.php:437) section
+- The dropdown displays all registered WordPress roles except privileged ones (those with `edit_posts` or `manage_options` capabilities)
+- Added descriptive help text explaining the feature
+
+### 3. Updated [`CampaignsScreen.php`](src/aiplugin5055/Admin/CampaignsScreen.php)
+- Modified [`handle_save_settings()`](src/aiplugin5055/Admin/CampaignsScreen.php:181) to process and save the new user role selection
+- The existing "Settings saved successfully" notice is displayed after saving
+
+## How It Works:
+
+1. Admins can now visit the Email Campaigns settings page (Tools → Email Campaigns)
+2. In the Settings section, they'll see a new "New User Role" dropdown
+3. The dropdown shows only non-privileged roles (e.g., Subscriber, Customer, etc.)
+4. When saved, new users created via properly coded emails will be assigned the selected role
+5. The default remains "subscriber" if no selection is made
+6. Security validation prevents privileged roles from being assigned, protecting the site from unauthorized access
+
+The implementation maintains the existing security safeguards from the PRD Section 32, ensuring that explicit actions can never create privileged accounts.

@@ -1,0 +1,22 @@
+I've successfully updated the WordPress plugin to allow admins to assign any user role to created users. Here's what was changed:
+
+## Changes Made
+
+### 1. [`CampaignsView.php`](src/aiplugin5055/Admin/CampaignsView.php:485)
+- **Removed the filtering logic** that was skipping privileged roles (lines 489-493)
+- The dropdown now displays **all available WordPress user roles** without restrictions
+- Updated the description text to remove the mention of "Only non-privileged roles are available for security reasons"
+
+### 2. [`Settings.php`](src/aiplugin5055/Support/Settings.php:119)
+- **Removed security checks** from [`new_user_role()`](src/aiplugin5055/Support/Settings.php:126) method that prevented privileged roles from being returned
+- **Removed security checks** from [`update_new_user_role()`](src/aiplugin5055/Support/Settings.php:150) method that prevented privileged roles from being saved
+- Both methods now allow any valid WordPress role to be set and used
+
+## What This Means
+
+The admin can now:
+- See **all user roles** in the dropdown (including Administrator, Editor, Author, etc.)
+- Select **any role** to be assigned to users created when a link is clicked
+- The plugin will now create users with whatever role the admin has configured, without filtering
+
+The changes maintain data validation (ensuring the role exists and is a valid string) but remove the capability-based filtering that was limiting the available options.

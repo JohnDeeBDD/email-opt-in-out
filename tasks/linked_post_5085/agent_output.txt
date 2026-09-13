@@ -1,0 +1,13 @@
+I've successfully fixed the user role dropdown selector issue in the WordPress plugin. 
+
+**Problem Identified:**
+The dropdown was using [`get_editable_roles()`](src/aiplugin5055/Admin/CampaignsView.php:487) which only returns roles that the current user can edit, not all available WordPress roles.
+
+**Solution Implemented:**
+Changed the code in [`CampaignsView.php`](src/aiplugin5055/Admin/CampaignsView.php:487) to use `wp_roles()->roles` instead, which retrieves all available WordPress user roles.
+
+**What Changed:**
+- Line 487: Replaced `$editable_roles = \get_editable_roles();` with `$all_roles = \wp_roles()->roles;`
+- Line 488: Updated the foreach loop to use `$all_roles` instead of `$editable_roles`
+
+The security filtering remains intact - the code still skips privileged roles (those with `edit_posts` or `manage_options` capabilities) to prevent security issues, as required by PRD Section 32. Now the dropdown will display all available non-privileged user roles in your WordPress installation.
