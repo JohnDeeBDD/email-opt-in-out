@@ -184,12 +184,15 @@ class CampaignsScreen {
 
 		$opt_out_page = isset( $_POST['opt_out_page'] ) ? (int) $_POST['opt_out_page'] : 0;
 		$new_user_role = isset( $_POST['new_user_role'] ) ? \sanitize_key( \wp_unslash( $_POST['new_user_role'] ) ) : '';
+		$text_only_emails = isset( $_POST['text_only_emails'] ) ? true : false;
 
 		Settings::update_opt_out_page( $opt_out_page );
 
 		if ( '' !== $new_user_role ) {
 			Settings::update_new_user_role( $new_user_role );
 		}
+
+		Settings::update_text_only_emails( $text_only_emails );
 
 		$this->redirect_back( array( 'aiplugin5055_notice' => 'settings_saved' ) );
 	}

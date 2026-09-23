@@ -1,0 +1,52 @@
+{
+    "protocol_version": 1,
+    "protocol_minor": 3,
+    "state": "completed",
+    "task_id": "1",
+    "run_id": "5055-20260915111404",
+    "producer_agent": "vscode_zoo",
+    "consumer": "vscode_zoo",
+    "consumer_id": null,
+    "capabilities_required": [
+        "supports_patch_apply",
+        "supports_shell_exec",
+        "supports_multistep"
+    ],
+    "created_at": "2026-09-15T11:14:04+00:00",
+    "updated_at": "2026-09-15T11:15:48.260Z",
+    "heartbeat_at": "2026-09-15T11:15:40.865Z",
+    "expires_at": "2026-09-15T11:24:04+00:00",
+    "result": {
+        "status": "success",
+        "message": "Task completed",
+        "reason": "completed",
+        "agent": "vscode_zoo",
+        "agent_version": "0.1.0",
+        "mode": "code",
+        "zoo_task_id": "01a0a4c6-7942-7009-995c-83e919122412",
+        "finished_at": "2026-09-15T11:15:48.255Z",
+        "event_counts": {
+            "message": 34,
+            "other": 23,
+            "result": 1
+        },
+        "started_at": "2026-09-15T11:14:22.211Z",
+        "duration_ms": 86044,
+        "zoocode": {
+            "extension_id": "zoocodeorganization.zoo-code",
+            "extension_version": "3.83.100486",
+            "can_answer_asks": true
+        },
+        "asks": {
+            "seen": 22,
+            "approved": 21,
+            "rejected": 1,
+            "waiting": 0,
+            "undeliverable": 0
+        }
+    },
+    "claimed_by": "vscode_zoo-1789470862210-78126w",
+    "agent": "vscode_zoo",
+    "collected_at": "2026-09-15T11:15:50+00:00",
+    "collected_by": "vscode_zoo"
+}

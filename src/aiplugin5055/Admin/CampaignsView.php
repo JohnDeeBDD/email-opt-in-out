@@ -437,6 +437,7 @@ class CampaignsView {
 	private static function render_settings() {
 		$opt_out_page = Settings::opt_out_page();
 		$new_user_role = Settings::new_user_role();
+		$text_only_emails = Settings::text_only_emails();
 		?>
 		<hr>
 
@@ -496,6 +497,22 @@ class CampaignsView {
 							</select>
 							<p class="description">
 								<?php \esc_html_e( 'Select the role that will be assigned to new users created when they visit the site with a properly coded email.', 'aiplugin5055' ); ?>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<label for="aiplugin5055_text_only_emails">
+								<?php \esc_html_e( 'Email Format', 'aiplugin5055' ); ?>
+							</label>
+						</th>
+						<td>
+							<label>
+								<input type="checkbox" name="text_only_emails" id="aiplugin5055_text_only_emails" value="1" <?php \checked( $text_only_emails, true ); ?>>
+								<?php \esc_html_e( 'Only send text emails (disable HTML emails)', 'aiplugin5055' ); ?>
+							</label>
+							<p class="description">
+								<?php \esc_html_e( 'When enabled, all emails sent by WordPress will be in plain text format instead of HTML. This affects all emails site-wide, not just those from this plugin.', 'aiplugin5055' ); ?>
 							</p>
 						</td>
 					</tr>

@@ -1,0 +1,35 @@
+{
+    "taskId": 1,
+    "name": "Plugin Task1",
+    "description": "A task to be executed by the agent.",
+    "instruction": "Please help me with the WordPress plugin. [user]: I want to add some functionality. I want an admin setting \"Only send text emails\". This will disable HTML emails and only send text emails. Please create a todo list and start implementing this step by step. You are in YOLO mode. Please update the plugin code only, testing is not your responsibility for now.",
+    "mode": "code",
+    "options": {
+        "newTab": true,
+        "timeout": 180000
+    },
+    "continueOnFailure": false,
+    "beforeTask": {
+        "command": "echo 'Preparing environment for plugin 5055' && mkdir -p ./logs ./temp && test -f spec.md && echo 'Spec file found' || echo 'Warning: No spec file found'",
+        "workingDirectory": "./",
+        "timeout": 30000,
+        "continueOnFailure": false,
+        "description": "Prepare environment and validate required files before task execution",
+        "environment": {
+            "PLUGIN_ID": "5055",
+            "TASK_TYPE": "preparation",
+            "BEFORE_TASK": "true"
+        }
+    },
+    "callback": {
+        "command": "echo 'Plugin generated for post 5055: ' && cat aiplugin5055.php",
+        "workingDirectory": "./",
+        "timeout": 10000,
+        "continueOnFailure": true,
+        "description": "Process a task",
+        "environment": {
+            "PLUGIN_ID": "5055",
+            "TASK_TYPE": "task"
+        }
+    }
+}

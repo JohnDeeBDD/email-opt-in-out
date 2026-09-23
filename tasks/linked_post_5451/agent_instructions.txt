@@ -1,0 +1,1 @@
+Please help me with the WordPress plugin. [user]: I want to add some functionality. I want an admin setting "Only send text emails". This will disable HTML emails and only send text emails. Please create a todo list and start implementing this step by step. You are in YOLO mode. Please update the plugin code only, testing is not your responsibility for now.

@@ -183,6 +183,25 @@ class Settings {
 	}
 
 	/**
+	 * Whether to send only text emails (disable HTML emails).
+	 *
+	 * @return bool
+	 */
+	public static function text_only_emails() {
+		return (bool) \get_option( 'aiplugin5055_text_only_emails', false );
+	}
+
+	/**
+	 * Update the text-only emails setting.
+	 *
+	 * @param bool $enabled Whether to send only text emails.
+	 * @return bool
+	 */
+	public static function update_text_only_emails( $enabled ) {
+		return \update_option( 'aiplugin5055_text_only_emails', (bool) $enabled );
+	}
+
+	/**
 	 * Create and persist the settings on first use.
 	 *
 	 * @return array

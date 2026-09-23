@@ -1,0 +1,32 @@
+
+I've successfully implemented the "Only send text emails" admin setting for your WordPress plugin. Here's what was added:
+
+## Changes Made:
+
+### 1. **[`Settings.php`](src/aiplugin5055/Support/Settings.php:185)** - Storage Methods
+- Added [`text_only_emails()`](src/aiplugin5055/Support/Settings.php:189) method to retrieve the setting
+- Added [`update_text_only_emails()`](src/aiplugin5055/Support/Settings.php:197) method to save the setting
+
+### 2. **[`CampaignsScreen.php`](src/aiplugin5055/Admin/CampaignsScreen.php:180)** - Form Handler
+- Updated [`handle_save_settings()`](src/aiplugin5055/Admin/CampaignsScreen.php:180) to process the checkbox value from the form
+- The setting is saved when the admin submits the settings form
+
+### 3. **[`CampaignsView.php`](src/aiplugin5055/Admin/CampaignsView.php:437)** - Admin UI
+- Added a new checkbox field in the settings form labeled "Email Format"
+- The checkbox displays "Only send text emails (disable HTML emails)"
+- Includes a description explaining that this affects all emails site-wide
+
+### 4. **[`aiplugin5055.php`](aiplugin5055.php:240)** - Email Filter
+- Added WordPress filter hook that checks if the setting is enabled
+- When enabled, the `wp_mail_content_type` filter returns `'text/plain'` instead of the default `'text/html'`
+- This disables HTML emails site-wide
+
+## How It Works:
+
+1. Navigate to **Tools → Email Campaigns** in the WordPress admin
+2. Scroll down to the **Settings** section
+3. Check the "Only send text emails (disable HTML emails)" checkbox
+4. Click **Save Settings**
+5. All emails sent by WordPress will now be in plain text format
+
+The setting is stored in the WordPress options table as `aiplugin5055_text_only_emails` and persists across sessions. When enabled, it forces all WordPress emails to use plain text format by filtering the content type.
